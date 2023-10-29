@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--    <bean id="provider" class="org.example.app.context.declare.HelloWorldMessageProvider">-->
+    <!--        <constructor-arg value="I hope that someone gets mу message in а bottle"/>-->
+    <!--    </bean>-->
+
+    <bean id="provider" class="org.example.app.context.declare.ConfigurableMessageProvider">
+        <constructor-arg value="I hope that someone gets mу message in а bottle"/>
+    </bean>
+
+    <bean id="renderer" class="org.example.app.context.declare.StandardOutMessageRenderer">
+        <property name="messageProvider" ref="provider"/>
+    </bean>
+
+    <bean id="injectSimple" class="org.example.app.context.simple.value.InjectSimple"
+          p:name="John Mayer"
+          p:age="39"
+          p:height="1.92"
+          p:programmer="false"
+          p:ageInSeconds="1241401112"/>
+
+    <bean id="injectSimpleConfig" class="org.example.app.context.spel.InjectSimpleConfig"/>
+    <bean id="injectSimpleSpel" class="org.example.app.context.spel.InjectSimpleSpel"
+          p:name="#{injectSimpleConfig.name}"
+          p:age="#{injectSimpleConfig.age + 1}"
+          p:height="#{injectSimpleConfig.height}"
+          p:programmer="#{injectSimpleConfig.programmer}"
+          p:ageInSeconds="#{injectSimpleConfig.ageInSeconds}"/>
+
+    <bean id="lyricHolder" class="org.example.app.context.collections.LyricHolder"/>
+
+    <bean id="injectCollection" class="org.example.app.context.collections.CollectionInjection">
+        <property name="map">
+            <!--            <map>-->
+            <!--                <entry key="someValue" value="It's а Friday, we finally made it"/>-->
+            <!--                <entry key="someBean" value-ref="lyricHolder"/>-->
+            <!--            </map>-->
+            <map>
+                <entry key="someValue">
+                    <value>It's а Friday, we finally made it</value>
+                </entry>
+                <entry key="someBean">
+                    <ref bean="lyricHolder"/>
+                </entry>
+            </map>
+        </property>
+        <property name="props">
+            <props>
+                <prop key="firstName">John</prop>
+                <prop key="secondName">Mayer</prop>
+            </props>
+        </property>
+        <property name="set">
+            <set>
+                <value>I can't believe I get to see your face</value>
+                <ref bean="lyricHolder"/>
+            </set>
+        </property>
+        <property name="list">
+            <list>
+                <value>You've been working and I've been waiting</value>
+                <ref bean="lyricHolder"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="singer" class="org.example.app.context.lookup.xml.Singer" scope="prototype"/>
+
+    <bean id="abstractLookupBean" class="org.example.app.context.lookup.xml.AbstractLookupDemoBean">
+        <lookup-method name="getMySinger" bean="singer"/>
+    </bean>
+
+    <bean id="standardLookupBean" class="org.example.app.context.lookup.xml.StandardLookupDemoBean">
+        <property name="mySinger" ref="singer"/>
+    </bean>
+
+</beans>

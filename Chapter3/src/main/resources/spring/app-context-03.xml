@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="fooOne" class="org.example.app.context.depend.primary.autowired.by.Foo"/>
+
+    <bean id="barOne" class="org.example.app.context.depend.primary.autowired.by.Bar"/>
+
+    <bean id="targetByName" autowire="byName" class="org.example.app.context.depend.primary.autowired.by.Target" lazy-init="true"/>
+
+    <bean id="targetByType" autowire="byType" class="org.example.app.context.depend.primary.autowired.by.Target" lazy-init="true"/>
+
+    <bean id="targetConstructor" autowire="constructor" class="org.example.app.context.depend.primary.autowired.by.Target" lazy-init="true"/>
+
+</beans>

@@ -79,4 +79,7 @@
         <property name="mySinger" ref="singer"/>
     </bean>
 
+    <bean id="parent" class="org.example.app.context.inherit.Singer" p:name="John Mayer" p:age="39"/>
+    <bean id="child" class="org.example.app.context.inherit.Singer" parent="parent" p:age="0"/>
+
 </beans>

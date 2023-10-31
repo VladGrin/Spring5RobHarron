@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="hello-world (1) (org.example.app.context)" />
         <module name="hello-world" />
         <module name="hello-world (1)" />
       </profile>
@@ -13,6 +14,7 @@
     <bytecodeTargetLevel>
       <module name="hello-world" target="1.8" />
       <module name="hello-world (1)" target="17" />
+      <module name="hello-world (1) (org.example.app.context)" target="17" />
     </bytecodeTargetLevel>
   </component>
 </project>

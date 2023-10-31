@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd"
+       default-lazy-init="true">
+    <!--       default-init-method="init">-->
+
+    <bean id="singerOne" class="org.example.init.method.Singer" init-method="init" p:name="John Mayer" p:age="39"/>
+    <bean id="singerTwo" class="org.example.init.method.Singer" init-method="init" p:age="72"/>
+    <bean id="singerThree" class="org.example.init.method.Singer" init-method="init" p:name="John Butler"/>
+
+    <bean id="singerOneI" class="org.example.init.initializing.bean.SingerWithInterface" p:name="John Mayer"
+          p:age="39"/>
+    <bean id="singerTwoI" class="org.example.init.initializing.bean.SingerWithInterface" p:age="72"/>
+    <bean id="singerThreeI" class="org.example.init.initializing.bean.SingerWithInterface" p:name="John Butler"/>
+
+    <bean id="destructiveBean" class="org.example.destroy.method.DestructiveBean" destroy-method="destroy"
+          p:filePath="#{systemProperties['java.io.tmpdir']}#{systemProperties['file.separator']}test.txt"/>
+
+    <bean id="destructiveBeanD" class="org.example.destroy.disposable.bean.DestructiveBeanWithInterface"
+          p:filePath="#{systemProperties['java.io.tmpdir']}#{systemProperties['file.separator']}test.txt"/>
+
+</beans>

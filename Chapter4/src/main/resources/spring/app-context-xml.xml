@@ -22,4 +22,8 @@
     <bean id="destructiveBeanD" class="org.example.destroy.disposable.bean.DestructiveBeanWithInterface"
           p:filePath="#{systemProperties['java.io.tmpdir']}#{systemProperties['file.separator']}test.txt"/>
 
+    <bean id="shaDigest" class="org.example.factory.MessageDigestFactoryBean" p:algorithmName="SHA1"/>
+    <bean id="defaultDigest" class="org.example.factory.MessageDigestFactoryBean"/>
+    <bean id="digester" class="org.example.factory.MessageDigester"
+          p:digestl-ref="shaDigest" p:digest2-ref="defaultDigest"/>
 </beans>

@@ -5,7 +5,6 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd"
        default-lazy-init="true">
-    <!--       default-init-method="init">-->
 
     <bean id="singerOne" class="org.example.init.method.Singer" init-method="init" p:name="John Mayer" p:age="39"/>
     <bean id="singerTwo" class="org.example.init.method.Singer" init-method="init" p:age="72"/>

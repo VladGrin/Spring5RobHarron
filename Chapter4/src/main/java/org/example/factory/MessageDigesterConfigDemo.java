@@ -28,12 +28,12 @@ public class MessageDigesterConfigDemo {
             messageDigester.setDigest2(defaultDigest().getObject());
             return messageDigester;
         }
+    }
 
-        public static void main(String... args) {
-            GenericApplicationContext ctx = new AnnotationConfigApplicationContext(MessageDigesterConfig.class);
-            MessageDigester digester = (MessageDigester) ctx.getBean("digester");
-            digester.digest("Hello World!");
-            ctx.close();
-        }
+    public static void main(String... args) {
+        GenericApplicationContext ctx = new AnnotationConfigApplicationContext(MessageDigesterConfig.class);
+        MessageDigester digester = (MessageDigester) ctx.getBean("digester");
+        digester.digest("Hello World!");
+        ctx.close();
     }
 }

@@ -15,6 +15,8 @@ public class MessageSourceDemo {
         System.out.println(ctx.getMessage("msg", null, german));
         System.out.println(ctx.getMessage("nameMsg", new Object[]{"John", "Mayer"}, english));
         System.out.println(ctx.getMessage("nameMsg", new Object[]{"John", "Mayer"}, german));
+        System.out.println(ctx.getMessage("btn", null, english));
+        System.out.println(ctx.getMessage("btn", null, german));
         ctx.close();
     }
 }

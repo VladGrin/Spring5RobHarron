@@ -5,15 +5,11 @@ z
 JChapter4/src/main/java/org/example/init/method/annot/SingerConfigDemo.java,9\c\9c30de232449f59cdb436909fc9c5f57996f71c5
 v
 FChapter4/src/main/java/org/example/init/method/annot/SingerConfig.java,8\d\8dc6257f70bba06d5cfeb406fe93785898d8831a
-H
-Chapter2/hello-world.iml,d\9\d9dc33a93df3d084f1b06272f2171c42d46a8040
 |
 LChapter4/src/main/java/org/example/init/post/construct/SingerWithJSR250.java,1\d\1d66b5cee632cff84b1316f7cbd0ff8ab886f9fe
 ‚
 RChapter4/src/main/java/org/example/init/initializing/bean/SingerWithInterface.java,1\6\16f60974b87844d50eae61d0d76bae28b642a719
 …
 UChapter4/src/main/java/org/example/destroy/pre/destroy/DestructiveBeanWithJSR250.java,1\2\12c9941d6181225de94d9abde6df35cb2be6bb91
-@
-Chapter4/pom.xml,8\e\8e0e8d0fcddf04936df6e168ee07ce86840de358
 ‚
 RChapter4/src/main/java/org/example/destroy/method/annot/DestructiveBeanConfig.java,5\f\5f5db8553c4446852dda7fcd16008cb0e1198c87

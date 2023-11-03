@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Chapter4/Configuration_InitLoading.iml" filepath="$PROJECT_DIR$/Chapter4/Configuration_InitLoading.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Chapter2/Introduction.iml" filepath="$PROJECT_DIR$/Chapter2/Introduction.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Chapter3/IoC_DependencyInjection.iml" filepath="$PROJECT_DIR$/Chapter3/IoC_DependencyInjection.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Spring5RobHarron.iml" filepath="$PROJECT_DIR$/.idea/Spring5RobHarron.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Chapter2/hello-world.iml" filepath="$PROJECT_DIR$/Chapter2/hello-world.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Chapter3/hello-world (1).iml" filepath="$PROJECT_DIR$/Chapter3/hello-world (1).iml" />
-      <module fileurl="file://$PROJECT_DIR$/Chapter4/hello-world (1) (org.example.app.context).iml" filepath="$PROJECT_DIR$/Chapter4/hello-world (1) (org.example.app.context).iml" />
     </modules>
   </component>
 </project>

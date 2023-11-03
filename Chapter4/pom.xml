@@ -65,6 +65,11 @@
             <artifactId>log4j</artifactId>
             <version>1.2.17</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -84,7 +89,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>org.example.init.method.Singer</mainClass>
+                            <mainClass>org.example.profiles.xml.ProfileXmlConfigExample</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

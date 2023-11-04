@@ -7,11 +7,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="IoC_DependencyInjection" />
-        <module name="Introduction" />
         <module name="Configuration_InitLoading" />
+        <module name="AOP" />
+        <module name="Introduction" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="AOP" target="17" />
       <module name="Configuration_InitLoading" target="17" />
       <module name="Introduction" target="1.8" />
       <module name="IoC_DependencyInjection" target="17" />

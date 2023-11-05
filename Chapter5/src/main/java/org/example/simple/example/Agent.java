@@ -1,4 +1,4 @@
-package org.example.simple.ex;
+package org.example.simple.example;
 
 public class Agent {
 

@@ -1,4 +1,4 @@
-package org.example.simple.ex;
+package org.example.simple.example;
 
 import org.springframework.aop.framework.ProxyFactory;
 

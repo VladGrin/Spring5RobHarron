@@ -109,3 +109,5 @@ RChapter5/src/main/java/org/example/spring/composable/pointcut/GrammyGuitarist.j
 \Chapter5/src/main/java/org/example/spring/composable/pointcut/ComposablePointcutExample.java,c\9\c98901f4af1347c55741e2819f70da484dab4b45
 t
 DChapter5/src/main/java/org/example/spring/staticpointcat/Singer.java,0\0\00e7d56a511c4d7c6dfc6b1b49e4d79ea324446c
+s
+CChapter5/src/main/java/org/example/spring/introduction/Contact.java,4\3\43eb5d86b999fda204924b76ed9afb5c315af829

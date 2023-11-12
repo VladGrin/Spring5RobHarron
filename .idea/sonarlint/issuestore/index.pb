@@ -13,8 +13,6 @@ RChapter4/src/main/java/org/example/init/initializing/bean/SingerWithInterface.j
 UChapter4/src/main/java/org/example/destroy/pre/destroy/DestructiveBeanWithJSR250.java,1\2\12c9941d6181225de94d9abde6df35cb2be6bb91
 ‚
 RChapter4/src/main/java/org/example/destroy/method/annot/DestructiveBeanConfig.java,5\f\5f5db8553c4446852dda7fcd16008cb0e1198c87
-@
-Chapter4/pom.xml,8\e\8e0e8d0fcddf04936df6e168ee07ce86840de358
 …
 UChapter3/src/main/java/org/example/app/context/declare/HelloWorldMessageProvider.java,6\a\6a0d36a7ba3f7dd62c0f8c0c239f0dc329ab3747
 }
@@ -109,8 +107,6 @@ t
 DChapter5/src/main/java/org/example/spring/staticpointcat/Singer.java,0\0\00e7d56a511c4d7c6dfc6b1b49e4d79ea324446c
 s
 CChapter5/src/main/java/org/example/spring/introduction/Contact.java,4\3\43eb5d86b999fda204924b76ed9afb5c315af829
-@
-Chapter5/pom.xml,c\2\c24034e92440ef2782034c371b809f04ce33d451
 v
 FChapter5/src/main/java/org/example/proxy/factory/bean/AuditAdvice.java,1\d\1d4314e8b8c4bda445c17ec85748946af59abbe8
 x

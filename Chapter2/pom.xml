@@ -6,7 +6,7 @@
     <artifactId>hello-world</artifactId>
     <packaging>jar</packaging>
     <version>5.0-SNAPSHOT</version>
-    <name>hello-world</name>
+    <name>introduction</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

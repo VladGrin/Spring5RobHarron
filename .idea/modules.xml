@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/Chapter4/Configuration_InitLoading.iml" filepath="$PROJECT_DIR$/Chapter4/Configuration_InitLoading.iml" />
       <module fileurl="file://$PROJECT_DIR$/Chapter2/Introduction.iml" filepath="$PROJECT_DIR$/Chapter2/Introduction.iml" />
       <module fileurl="file://$PROJECT_DIR$/Chapter3/IoC_DependencyInjection.iml" filepath="$PROJECT_DIR$/Chapter3/IoC_DependencyInjection.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Chapter6/JDBC.iml" filepath="$PROJECT_DIR$/Chapter6/JDBC.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Spring5RobHarron.iml" filepath="$PROJECT_DIR$/.idea/Spring5RobHarron.iml" />
     </modules>
   </component>

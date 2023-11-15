@@ -1,7 +1,8 @@
 package org.example.spring.config;
 
-import org.apache.commons.dbcp2.BasicDataSource;
 import org.example.old.jdbc.entity.Singer;
+import org.example.spring.dao.JdbcSingerDao;
+import org.example.spring.dao.SingerDao;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,28 +16,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 
-public class DbConfigTest {
-
-    private static final Logger logger = LoggerFactory.getLogger(DbConfigTest.class);
+public class EmbeddedJdbcConfigTest {
+    private static final Logger logger = LoggerFactory.getLogger(EmbeddedJdbcConfigTest.class);
 
     @Test
     public void testOne() throws SQLException {
         GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
-        ctx.load("classpath:./spring/drivermanager-cfg-01.xml");
-        ctx.refresh();
-        DataSource dataSource = ctx.getBean("dataSource", DataSource.class);
-        assertNotNull(dataSource);
-        testDataSource(dataSource);
-        ctx.close();
-    }
-
-    @Test
-    public void testThree() throws SQLException {
-        GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
-        ctx.load("classpath:./spring/drivermanager-cfg-02.xml");
+        ctx.load("classpath:./spring/embedded-h2-cfg.xml");
         ctx.refresh();
         DataSource dataSource = ctx.getBean("dataSource", DataSource.class);
         assertNotNull(dataSource);
@@ -46,11 +34,21 @@ public class DbConfigTest {
 
     @Test
     public void testTwo() throws SQLException {
-        GenericApplicationContext ctx = new AnnotationConfigApplicationContext(DbConfig.class);
+        GenericApplicationContext ctx = new AnnotationConfigApplicationContext(EmbeddedJdbcConfig.class);
         DataSource dataSource = ctx.getBean("dataSource", DataSource.class);
-//        DataSource dataSource = ctx.getBean("basicDataSource", BasicDataSource.class);
         assertNotNull(dataSource);
         testDataSource(dataSource);
+        ctx.close();
+    }
+
+    @Test
+    public void testTemplate() throws SQLException {
+        GenericApplicationContext ctx = new AnnotationConfigApplicationContext(EmbeddedJdbcConfig.class);
+        SingerDao singerDao = ctx.getBean("singerDao", JdbcSingerDao.class);
+        assertNotNull(singerDao);
+        String name = singerDao.findNameById(2L);
+        System.out.println(name);
+        assertEquals("Eric Clapton", name);
         ctx.close();
     }
 

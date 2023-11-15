@@ -13,17 +13,17 @@
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"
           p:driverClassName="#{jdbc.driverClassName}"
           p:url="#{jdbc.url}"
-          p:username="#{jdbc.pg-username}"
+          p:username="#{jdbc.username}"
           p:password="#{jdbc.password}"/>
 
     <util:properties id="jdbc" location="classpath:./db/jdbc2.properties"/>
 
-    <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close"
-          p:driverClassName="#{jdbc.driverClassName}"
-          p:url="#{jdbc.url}"
-          p:username="#{jdbc.pg-username}"
-          p:password="#{jdbc.password}"/>
+<!--    <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close"-->
+<!--          p:driverClassName="#{jdbc.driverClassName}"-->
+<!--          p:url="#{jdbc.url}"-->
+<!--          p:username="#{jdbc.username}"-->
+<!--          p:password="#{jdbc.password}"/>-->
 
-    <util:properties id="jdbc" location="classpath:./db/jdbc2.properties"/>
+<!--    <util:properties id="jdbc" location="classpath:./db/jdbc2.properties"/>-->
 
 </beans>

@@ -121,3 +121,7 @@ RChapter4/src/main/java/org/example/general/configuration/JavaConfigXMLExample.j
 XChapter4/src/main/java/org/example/general/configuration/StandardOutMessageRenderer.java,5\4\54a5066c86215c692281e8cb5ab46d1b0d9811f9
 c
 3Chapter6/src/main/java/org/example/spring/Main.java,b\d\bd9b8a9108b2f774c3fff34fb1542144876dda13
+m
+=Chapter6/src/main/java/org/example/old/jdbc/entity/Album.java,e\6\e67cd168c0e5d3a246af29b5697b081a8a8b2319
+n
+>Chapter6/src/main/java/org/example/old/jdbc/entity/Singer.java,1\8\18f5f8e84e7f7c2fbab2e7b7f9ddafb54cf7000f

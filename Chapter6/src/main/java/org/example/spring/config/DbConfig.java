@@ -13,14 +13,14 @@ import javax.sql.DataSource;
 import java.sql.Driver;
 
 @Configuration
-@PropertySource("classpath:./db/jdbc2.properties")
+@PropertySource("classpath:./db/jdbc3.properties")
 public class DbConfig {
 
     @Value("${driverClassName}")
     private String driverClassName;
     @Value("${url}")
     private String url;
-    @Value("${pg-username}")
+    @Value("${pg.username}")
     private String username;
     @Value("${password}")
     private String password;

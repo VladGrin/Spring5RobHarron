@@ -1,9 +1,12 @@
 package org.example.spring.dao;
 
+import org.example.old.jdbc.entity.Singer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.jdbc.core.JdbcTemplate;
+
+import java.util.List;
 
 public class JdbcSingerDao implements SingerDao, InitializingBean {
 
@@ -35,6 +38,16 @@ public class JdbcSingerDao implements SingerDao, InitializingBean {
         return jdbcTemplate.queryForObject(
                 "select first_name || ' ' || last_name from singer where id = ?",
                 String.class, id);
+    }
+
+    @Override
+    public List<Singer> findAll() {
+        return null;
+    }
+
+    @Override
+    public List<Singer> findAllWithAlbums() {
+        return null;
     }
 //
 //    public void setDataSource(DataSource dataSource) {

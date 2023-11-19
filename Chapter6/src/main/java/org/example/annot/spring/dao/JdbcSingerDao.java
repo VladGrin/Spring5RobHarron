@@ -1,34 +1,51 @@
 package org.example.annot.spring.dao;
 
+import org.example.annot.spring.mapper.*;
+import org.example.old.jdbc.entity.Album;
 import org.example.old.jdbc.entity.Singer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
 import javax.sql.DataSource;
-import java.util.List;
+import java.util.*;
 
 @Repository("singerDao")
-public class JdbcSingerDao implements SingerDao{
+public class JdbcSingerDao implements SingerDao {
 
     private static final Logger logger = LoggerFactory.getLogger(JdbcSingerDao.class);
 
     private DataSource dataSource;
+    private SelectAllSingers selectAllSingers;
+    private SelectSingerByFirstName selectSingerByFirstName;
+    private InsertSinger insertSinger;
+    private InsertSingerAlbum insertSingerAlbum;
+    private StoredFunctionFirstNameById storedFunctionFirstNameById;
 
     @Resource(name = "dataSource")
     public void setDataSource(DataSource dataSource) {
         this.dataSource = dataSource;
+        this.selectAllSingers = new SelectAllSingers(dataSource);
+        this.selectSingerByFirstName = new SelectSingerByFirstName(dataSource);
+        this.insertSinger = new InsertSinger(dataSource);
+        this.insertSingerAlbum = new InsertSingerAlbum(dataSource);
+        this.storedFunctionFirstNameById = new StoredFunctionFirstNameById(dataSource);
     }
 
     @Override
     public List<Singer> findAll() {
-        return null;
+        return selectAllSingers.execute();
     }
 
     @Override
     public List<Singer> findByFirstName(String firstName) {
-        return null;
+        Map<String, Object> paramMap = new HashMap<>();
+        paramMap.put("first_name", firstName);
+        return selectSingerByFirstName.executeByNamedParam(paramMap);
     }
 
     @Override
@@ -43,17 +60,55 @@ public class JdbcSingerDao implements SingerDao{
 
     @Override
     public String findFirstNameById(Long id) {
-        return null;
+        List<String> result = storedFunctionFirstNameById.execute(id);
+        return result.get(0);
     }
 
     @Override
     public List<Singer> findAllWithAlbums() {
-        return null;
+        JdbcTemplate template = new JdbcTemplate(dataSource);
+        String sql = "SELECT s.id, s.first_name, s.last_name, s.birth_date, a.id as album_id, a.title, a.release_date " +
+                "FROM singer s " +
+                "LEFT JOIN album a ON s.id = a.singer_id";
+        return template.query(sql, rs -> {
+            Map<Long, Singer> map = new HashMap<>();
+            Singer singer;
+            while (rs.next()) {
+                Long id = rs.getLong("id");
+                singer = map.get(id);
+                if (singer == null) {
+                    singer = new Singer();
+                    singer.setId(id);
+                    singer.setFirstName(rs.getString("first_name"));
+                    singer.setLastName(rs.getString("last_name"));
+                    singer.setBirthDate(rs.getDate("birth_date"));
+                    singer.setAlbums(new ArrayList<>());
+                    map.put(id, singer);
+                }
+                long albumId = rs.getLong("album_id");
+                if (albumId > 0) {
+                    Album album = new Album();
+                    album.setId(albumId);
+                    album.setSingerId(id);
+                    album.setTitle(rs.getString("title"));
+                    album.setReleaseDate(rs.getDate("release_date"));
+                    singer.addAlbum(album);
+                }
+            }
+            return new ArrayList<>(map.values());
+        });
     }
 
     @Override
     public void insert(Singer singer) {
-
+        Map<String, Object> paramMap = new HashMap<>();
+        paramMap.put("first_name", singer.getFirstName());
+        paramMap.put("last_name", singer.getLastName());
+        paramMap.put("birth_date", singer.getBirthDate());
+        KeyHolder keyHolder = new GeneratedKeyHolder();
+        insertSinger.updateByNamedParam(paramMap, keyHolder);
+        singer.setId(Objects.requireNonNull(keyHolder.getKey()).longValue());
+        logger.info("New singer inserted with id: {}", singer.getId());
     }
 
     @Override
@@ -68,7 +123,25 @@ public class JdbcSingerDao implements SingerDao{
 
     @Override
     public void insertWithAlbum(Singer singer) {
-
+        Map<String, Object> paramMap = new HashMap<>();
+        paramMap.put("first_name", singer.getFirstName());
+        paramMap.put("last_name", singer.getLastName());
+        paramMap.put("birth_date", singer.getBirthDate());
+        KeyHolder keyHolder = new GeneratedKeyHolder();
+        insertSinger.updateByNamedParam(paramMap, keyHolder);
+        singer.setId(Objects.requireNonNull(keyHolder.getKey()).longValue());
+        logger.info("New singer inserted with id: {}", singer.getId());
+        List<Album> albums = singer.getAlbums();
+        if (albums != null) {
+            for (Album album : albums) {
+                paramMap = new HashMap<>();
+                paramMap.put("singer_id", singer.getId());
+                paramMap.put("title", album.getTitle());
+                paramMap.put("release_date", album.getReleaseDate());
+                insertSingerAlbum.updateByNamedParam(paramMap);
+            }
+        }
+        insertSingerAlbum.flush();
     }
 
 }

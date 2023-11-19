@@ -13,6 +13,8 @@
 
     <logger name="org.example" level="debug"/>
 
+    <logger name="org.springframework.jdbc" level="debug"/>
+
     <logger name="org.springframework" level="off"/>
 
     <root level="debug">

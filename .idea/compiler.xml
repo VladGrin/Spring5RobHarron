@@ -11,12 +11,14 @@
         <module name="JDBC" />
         <module name="Configuration_InitLoading" />
         <module name="AOP" />
+        <module name="Hibernate" />
         <module name="Introduction" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="AOP" target="17" />
       <module name="Configuration_InitLoading" target="17" />
+      <module name="Hibernate" target="17" />
       <module name="Introduction" target="1.8" />
       <module name="IoC_DependencyInjection" target="17" />
       <module name="JDBC" target="17" />

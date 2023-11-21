@@ -3,6 +3,8 @@ package org.example.annot.entity;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "singer")
@@ -13,6 +15,8 @@ public class Singer implements Serializable {
     private String lastName;
     private Date birthDate;
     private int version;
+    private Set<Album> albums = new HashSet<>();
+    private Set<Instrument> instruments = new HashSet<>();
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,7 +29,7 @@ public class Singer implements Serializable {
         this.id = id;
     }
 
-    @Column(name = "FIRST_NAМE")
+    @Column(name = "FIRST_NAME")
     public String getFirstName() {
         return firstName;
     }
@@ -34,7 +38,7 @@ public class Singer implements Serializable {
         this.firstName = firstName;
     }
 
-    @Column(name = "LAST_NAМE")
+    @Column(name = "LAST_NAME")
     public String getLastName() {
         return lastName;
     }
@@ -62,6 +66,37 @@ public class Singer implements Serializable {
     public void setVersion(int version) {
         this.version = version;
     }
+
+    @OneToMany(mappedBy = "singer", cascade = CascadeType.ALL, orphanRemoval = true)
+    public Set<Album> getAlbums() {
+        return albums;
+    }
+
+    public boolean addAlbum(Album album) {
+        album.setSinger(this);
+        return getAlbums().add(album);
+    }
+
+    public void removeAlbum(Album album) {
+        getAlbums().remove(album);
+    }
+
+    public void setAlbums(Set<Album> albums) {
+        this.albums = albums;
+    }
+
+    @ManyToMany
+    @JoinTable(name = "singer_instrument",
+            joinColumns = @JoinColumn(name = "SINGER_ID"),
+            inverseJoinColumns = @JoinColumn(name = "INSTRUMENT_ID"))
+    public Set<Instrument> getInstruments() {
+        return instruments;
+    }
+
+    public void setInstruments(Set<Instrument> instruments) {
+        this.instruments = instruments;
+    }
+
 
     @Override
     public String toString() {

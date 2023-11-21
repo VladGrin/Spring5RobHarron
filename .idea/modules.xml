@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Chapter5/AOP.iml" filepath="$PROJECT_DIR$/Chapter5/AOP.iml" />
       <module fileurl="file://$PROJECT_DIR$/Chapter4/Configuration_InitLoading.iml" filepath="$PROJECT_DIR$/Chapter4/Configuration_InitLoading.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Chapter7/Hibernate.iml" filepath="$PROJECT_DIR$/Chapter7/Hibernate.iml" />
       <module fileurl="file://$PROJECT_DIR$/Chapter2/Introduction.iml" filepath="$PROJECT_DIR$/Chapter2/Introduction.iml" />
       <module fileurl="file://$PROJECT_DIR$/Chapter3/IoC_DependencyInjection.iml" filepath="$PROJECT_DIR$/Chapter3/IoC_DependencyInjection.iml" />
       <module fileurl="file://$PROJECT_DIR$/Chapter6/JDBC.iml" filepath="$PROJECT_DIR$/Chapter6/JDBC.iml" />

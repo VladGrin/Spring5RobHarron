@@ -30,26 +30,33 @@ public class SingerDaoImpl implements SingerDao {
     @Override
     @Transactional(readOnly = true)
     public List<Singer> findAll() {
-        return sessionFactory.getCurrentSession().createQuery("from Singer s").list(); // select s from Singer s
+        return (List<Singer>) sessionFactory.getCurrentSession().createQuery("from Singer s").list(); // select s from Singer s
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Singer> findAllWithAlbum() {
-        return null;
+        return (List<Singer>) sessionFactory.getCurrentSession().getNamedQuery("Singer.findAllWithAlbum").list();
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Singer findById(Long id) {
-        return null;
+        return (Singer) sessionFactory.getCurrentSession()
+                .getNamedQuery("Singer.findById")
+                .setParameter("id", id).uniqueResult();
     }
 
     @Override
-    public Singer save(Singer contact) {
-        return null;
+    public Singer save(Singer singer) {
+        sessionFactory.getCurrentSession().saveOrUpdate(singer);
+        logger.info("Singer saved with id: " + singer.getId());
+        return singer;
     }
 
     @Override
-    public void delete(Singer contact) {
-
+    public void delete(Singer singer) {
+        sessionFactory.getCurrentSession().delete(singer);
+        logger.info("Singer deleted with id: " + singer.getId());
     }
 }

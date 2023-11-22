@@ -2,12 +2,23 @@ package org.example.annot.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 @Table(name = "singer")
+@NamedQueries({
+        @NamedQuery(name="Singer.findById",
+                query = "select distinct s from Singer s "
+                        + "left join fetch s.albums а "
+                        + "left join fetch s.instruments i "
+                        + "where s.id = :id"),
+        @NamedQuery(name = "Singer.findAllWithAlbum",
+                query = "select distinct s from Singer s "
+                        + "left join fetch s.albums а "
+                        + "left join fetch s.instruments i")
+})
 public class Singer implements Serializable {
 
     private Long id;
@@ -85,7 +96,7 @@ public class Singer implements Serializable {
         this.albums = albums;
     }
 
-    @ManyToMany
+    @ManyToMany   // (fetch = FetchType.EAGER) для принудительного заполнения связанными данными
     @JoinTable(name = "singer_instrument",
             joinColumns = @JoinColumn(name = "SINGER_ID"),
             inverseJoinColumns = @JoinColumn(name = "INSTRUMENT_ID"))

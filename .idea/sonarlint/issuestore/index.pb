@@ -117,8 +117,6 @@ s
 CChapter6/src/main/java/org/example/old/jdbc/dao/PlainSingerDao.java,9\9\999f7682ac2fc32350dab856c200e7414136f908
 …
 UChapter6/src/main/java/org/example/spring/exception/PostgresErrorCodesTranslator.java,e\5\e5f4451dcd67198f6b686e95fed7548583f90713
-@
-Chapter6/pom.xml,2\1\217cc997655be4e994e8edebc636bc731e8d232f
 }
 MChapter4/src/test/java/org/example/profiles/annot/ProfilesJavaConfigTest.java,d\7\d7654dcb4ec4cdab788cb85326bee12ed56ddb6d
 n
@@ -138,3 +136,9 @@ RChapter4/src/main/java/org/example/general/configuration/JavaConfigXMLExample.j
 :
 
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
+x
+HChapter6/src/main/java/org/example/spring/config/EmbeddedJdbcConfig.java,2\7\271d6bbf272120bcb3c26131644ff31d2e67c315
+r
+BChapter6/src/main/java/org/example/annot/spring/dao/SingerDao.java,f\9\f9d328b8341fc32cd3d2d8e5ba8120bf9611bb3e
+~
+NChapter6/src/test/java/org/example/annot/spring/config/AnnotationJdbcTest.java,1\3\136555cac189060f7e2205938a4ecdab39c44156

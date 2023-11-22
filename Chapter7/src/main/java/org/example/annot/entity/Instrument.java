@@ -35,7 +35,6 @@ public class Instrument implements Serializable {
         this.singers = singers;
     }
 
-
     @Override
     public String toString() {
         return "Instrument{" +

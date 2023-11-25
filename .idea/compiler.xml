@@ -11,7 +11,6 @@
         <module name="JDBC" />
         <module name="Configuration_InitLoading" />
         <module name="AOP" />
-        <module name="Hibernate" />
         <module name="Introduction" />
       </profile>
     </annotationProcessing>

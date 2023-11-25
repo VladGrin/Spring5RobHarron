@@ -14,7 +14,7 @@ import javax.annotation.PostConstruct;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
-@Service
+//@Service
 public class DBInitializer {
 
     private Logger logger = LoggerFactory.getLogger(DBInitializer.class);

@@ -121,18 +121,6 @@ UChapter6/src/main/java/org/example/spring/exception/PostgresErrorCodesTranslato
 MChapter4/src/test/java/org/example/profiles/annot/ProfilesJavaConfigTest.java,d\7\d7654dcb4ec4cdab788cb85326bee12ed56ddb6d
 n
 >Chapter6/src/main/java/org/example/old/jdbc/dao/SingerDao.java,5\0\50751f911be93141199138067433efa3a65e0c9d
-†
-VChapter3/src/main/java/org/example/app/context/declare/StandardOutMessageRenderer.java,7\6\76c389d6694f6e3951b9412cf1b2c25d4648d3c0
-}
-MChapter4/src/main/java/org/example/general/configuration/MessageProvider.java,5\a\5a49a286b1fa4c7da1378e95b7e92a8154e6a1d7
-‰
-YChapter4/src/main/java/org/example/general/configuration/ConfigurableMessageProvider.java,b\2\b29ffc092c1c6894cf81b9db4bb126b82f008ec3
-}
-MChapter4/src/main/java/org/example/general/configuration/MessageRenderer.java,d\5\d5357b92259f9f85c053078cb8b0f00d156cce2c
-ˆ
-XChapter4/src/main/java/org/example/general/configuration/StandardOutMessageRenderer.java,5\4\54a5066c86215c692281e8cb5ab46d1b0d9811f9
-‚
-RChapter4/src/main/java/org/example/general/configuration/JavaConfigXMLExample.java,2\7\2725100140c1c8f07d6e13e0591f4bd91c07478c
 :
 
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302

@@ -9,6 +9,7 @@
       <module fileurl="file://$PROJECT_DIR$/Chapter3/IoC_DependencyInjection.iml" filepath="$PROJECT_DIR$/Chapter3/IoC_DependencyInjection.iml" />
       <module fileurl="file://$PROJECT_DIR$/Chapter6/JDBC.iml" filepath="$PROJECT_DIR$/Chapter6/JDBC.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Spring5RobHarron.iml" filepath="$PROJECT_DIR$/.idea/Spring5RobHarron.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Chapter8/jpa2.iml" filepath="$PROJECT_DIR$/Chapter8/jpa2.iml" />
     </modules>
   </component>
 </project>

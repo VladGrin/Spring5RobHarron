@@ -34,7 +34,7 @@ public class SingerJPATest {
     }
 
     @Test
-    public void testinsert() {
+    public void testInsert() {
         Singer singer = new Singer();
         singer.setFirstName("BB");
         singer.setLastName("King");
@@ -52,6 +52,29 @@ public class SingerJPATest {
         List<Singer> singers = singerService.findAllWithAlbum();
         assertEquals(4, singers.size());
         listSingersWithAlbum(singers);
+    }
+
+    @Test
+    public void testUpdate() {
+        Singer singer = singerService.findById(1L);
+        assertNotNull(singer);
+        assertEquals("Mayer", singer.getLastName());
+
+        Album album = singer.getAlbums().stream().filter(a ->
+                        a.getTitle().equals("Battle Studies"))
+                .findFirst().get();
+        singer.setFirstName("John Clayton");
+        singer.removeAlbum(album);
+        singerService.save(singer);
+        listSingersWithAlbum(singerService.findAllWithAlbum());
+    }
+
+    @Test
+    public void testDelete () {
+        Singer singer = singerService.findById(2L);
+        assertNotNull(singer);
+        singerService.delete(singer);
+        listSingersWithAlbum(singerService.findAllWithAlbum());
     }
 
     @After

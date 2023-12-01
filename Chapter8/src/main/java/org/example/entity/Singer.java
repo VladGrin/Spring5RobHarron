@@ -76,4 +76,8 @@ public class Singer implements Serializable {
     public void addAlbum(Album album) {
         albums.add(album);
     }
+
+    public void removeAlbum(Album album) {
+        albums.remove(album);
+    }
 }

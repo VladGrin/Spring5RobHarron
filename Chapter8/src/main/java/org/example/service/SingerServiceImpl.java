@@ -60,7 +60,9 @@ public class SingerServiceImpl implements SingerService {
 
     @Override
     public void delete(Singer singer) {
-        throw new NotimplementedException("delete");
+        Singer mergedSinger = em.merge(singer);
+        em.remove(mergedSinger);
+        logger.info("Singer with id: {} deleted successfully", singer.getId());
     }
 
     @Override

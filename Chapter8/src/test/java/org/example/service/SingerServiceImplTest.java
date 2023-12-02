@@ -1,9 +1,11 @@
 package org.example.service;
 
-import org.example.config.JpaConfig;
-import org.example.entity.Album;
-import org.example.entity.Instrument;
-import org.example.entity.Singer;
+import org.example.jpa.config.JpaConfig;
+import org.example.jpa.entity.Album;
+import org.example.jpa.entity.Instrument;
+import org.example.jpa.entity.Singer;
+import org.example.jpa.service.SingerService;
+import org.example.jpa.service.SingerServiceImpl;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

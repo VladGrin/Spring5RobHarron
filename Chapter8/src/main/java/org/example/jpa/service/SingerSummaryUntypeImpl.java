@@ -1,4 +1,4 @@
-package org.example.service;
+package org.example.jpa.service;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;

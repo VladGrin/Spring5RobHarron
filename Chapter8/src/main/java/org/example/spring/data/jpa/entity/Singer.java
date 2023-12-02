@@ -1,4 +1,4 @@
-package org.example.entity;
+package org.example.spring.data.jpa.entity;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,6 +28,10 @@ import java.util.Set;
 @Getter
 @Setter
 @NoArgsConstructor
+@SqlResultSetMapping(
+        name="singerResult",
+        entities=@EntityResult(entityClass=Singer.class)
+)
 public class Singer implements Serializable {
 
     public static final String FIND_ALL = "Singer.findAll";

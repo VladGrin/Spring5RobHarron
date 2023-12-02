@@ -1,6 +1,6 @@
-package org.example.service;
+package org.example.jpa.service;
 
-import org.example.entity.SingerSummary;
+import org.example.jpa.entity.SingerSummary;
 
 import java.util.List;
 

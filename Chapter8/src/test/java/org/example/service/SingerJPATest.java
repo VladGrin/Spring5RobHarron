@@ -1,8 +1,9 @@
 package org.example.service;
 
-import org.example.config.JpaConfig;
-import org.example.entity.Album;
-import org.example.entity.Singer;
+import org.example.jpa.config.JpaConfig;
+import org.example.jpa.entity.Album;
+import org.example.jpa.entity.Singer;
+import org.example.jpa.service.SingerService;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -16,6 +17,7 @@ import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Objects;
 
+import static org.example.service.SingerServiceImplTest.listSingers;
 import static org.example.service.SingerServiceImplTest.listSingersWithAlbum;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -70,11 +72,32 @@ public class SingerJPATest {
     }
 
     @Test
-    public void testDelete () {
+    public void testDelete() {
         Singer singer = singerService.findById(2L);
         assertNotNull(singer);
         singerService.delete(singer);
         listSingersWithAlbum(singerService.findAllWithAlbum());
+    }
+
+    @Test
+    public void testFindAllByNativeQuery() {
+        List<Singer> singers = singerService.findAllByNativeQuery();
+        assertNotNull(singers);
+        listSingers(singers);
+    }
+
+    @Test
+    public void findAllByNativeQueryWithSqlResultSetMapping() {
+        List<Singer> singers = singerService.findAllByNativeQueryWithSqlResultSetMapping();
+        assertNotNull(singers);
+        listSingers(singers);
+    }
+
+    @Test
+    public void tesFindByCriteriaQuery() {
+        List<Singer> singers = singerService.findByCriteriaQuery("John", "Mayer");
+        assertEquals(1, singers.size());
+        listSingersWithAlbum(singers);
     }
 
     @After

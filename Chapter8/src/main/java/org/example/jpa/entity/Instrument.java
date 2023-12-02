@@ -1,4 +1,4 @@
-package org.example.entity;
+package org.example.jpa.entity;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

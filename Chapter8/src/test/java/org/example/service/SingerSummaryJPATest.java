@@ -1,7 +1,9 @@
 package org.example.service;
 
-import org.example.config.JpaConfig;
-import org.example.entity.SingerSummary;
+import org.example.jpa.config.JpaConfig;
+import org.example.jpa.entity.SingerSummary;
+import org.example.jpa.service.SingerSummaryService;
+import org.example.jpa.service.SingerSummaryUntypeImpl;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

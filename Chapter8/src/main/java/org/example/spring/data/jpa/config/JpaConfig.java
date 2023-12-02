@@ -1,10 +1,11 @@
-package org.example.config;
+package org.example.spring.data.jpa.config;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 import org.springframework.orm.jpa.JpaTransactionManager;
@@ -21,7 +22,8 @@ import java.util.Properties;
 
 @Configuration
 @EnableTransactionManagement
-@ComponentScan(basePackages = {"org.example"})
+@ComponentScan(basePackages = {"org.example.spring"})
+@EnableJpaRepositories(basePackages = {"org.example.spring"})
 public class JpaConfig {
 
     private static Logger logger = LoggerFactory.getLogger(JpaConfig.class);
@@ -45,18 +47,6 @@ public class JpaConfig {
     }
 
     @Bean
-    public EntityManagerFactory entityManagerFactory() {
-        LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
-        factoryBean.setPackagesToScan("org.example");
-        factoryBean.setDataSource(dataSource());
-        factoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
-        factoryBean.setJpaProperties(hibernateProperties());
-        factoryBean.setJpaVendorAdapter(jpaVendorAdapter());
-        factoryBean.afterPropertiesSet();
-        return factoryBean.getNativeEntityManagerFactory();
-    }
-
-    @Bean
     public JpaVendorAdapter jpaVendorAdapter() {
         return new HibernateJpaVendorAdapter();
     }
@@ -72,5 +62,17 @@ public class JpaConfig {
         hibernateProp.put("hibernate.jdbc.batch_size", 10);
         hibernateProp.put("hibernate.jdbc.fetch_size", 50);
         return hibernateProp;
+    }
+
+    @Bean
+    public EntityManagerFactory entityManagerFactory() {
+        LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
+        factoryBean.setPackagesToScan("org.example.spring");
+        factoryBean.setDataSource(dataSource());
+        factoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
+        factoryBean.setJpaProperties(hibernateProperties());
+        factoryBean.setJpaVendorAdapter(jpaVendorAdapter());
+        factoryBean.afterPropertiesSet();
+        return factoryBean.getNativeEntityManagerFactory();
     }
 }

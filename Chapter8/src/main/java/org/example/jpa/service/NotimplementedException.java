@@ -1,4 +1,4 @@
-package org.example.service;
+package org.example.jpa.service;
 
 public class NotimplementedException extends RuntimeException {
 

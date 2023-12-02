@@ -1,6 +1,7 @@
-package org.example.service;
+package org.example.jpa.service;
 
-import org.example.entity.Singer;
+import org.example.jpa.entity.Singer;
+import org.example.jpa.entity.Singer_;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
@@ -10,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+import javax.persistence.criteria.*;
 import java.util.List;
 
 @Service("jpaSingerService")
@@ -68,6 +70,35 @@ public class SingerServiceImpl implements SingerService {
     @Override
     @Transactional(readOnly = true)
     public List<Singer> findAllByNativeQuery() {
-        throw new NotimplementedException("findAllByNativeQuery");
+        return em.createNativeQuery(ALL_SINGER_NATIVE_QUERY, Singer.class).getResultList();
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<Singer> findAllByNativeQueryWithSqlResultSetMapping() {
+        return em.createNativeQuery(ALL_SINGER_NATIVE_QUERY, "singerResult").getResultList();
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<Singer> findByCriteriaQuery(String firstName, String lastName) {
+        logger.info("Finding singer for firstName: " + firstName + " and lastName: " + lastName);
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery<Singer> criteriaQuery = cb.createQuery(Singer.class);
+        Root<Singer> singerRoot = criteriaQuery.from(Singer.class);
+        singerRoot.fetch(Singer_.albums, JoinType.LEFT);
+        singerRoot.fetch(Singer_.instruments, JoinType.LEFT);
+        criteriaQuery.select(singerRoot).distinct(true);
+        Predicate criteria = cb.conjunction();
+        if (firstName != null) {
+            Predicate p = cb.equal(singerRoot.get(Singer_.firstName), firstName);
+            criteria = cb.and(criteria, p);
+        }
+        if (lastName != null) {
+            Predicate p = cb.equal(singerRoot.get(Singer_.lastName), lastName);
+            criteria = cb.and(criteria, p);
+        }
+        criteriaQuery.where(criteria);
+        return em.createQuery(criteriaQuery).getResultList();
     }
 }

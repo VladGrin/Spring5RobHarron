@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
@@ -26,6 +27,7 @@ import java.util.Properties;
 @ComponentScan(basePackages = {"org.example.spring.data.jpa"})
 @EnableJpaRepositories(basePackages = {"org.example.spring.data.jpa.repo"})
 @PropertySource("classpath:./application.properties")
+@EnableJpaAuditing(auditorAwareRef = "auditorAwareBean")
 public class DataJpaConfig {
 
     private static Logger logger = LoggerFactory.getLogger(DataJpaConfig.class);

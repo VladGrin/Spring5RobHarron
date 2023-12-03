@@ -1,12 +1,12 @@
 package org.example.spring.data.jpa.service;
 
+import com.google.common.collect.Lists;
 import org.example.spring.data.jpa.entity.Singer;
 import org.example.spring.data.jpa.repo.SingerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service("springJpaSingerService")
@@ -17,18 +17,20 @@ public class SingerServiceImpl implements SingerService {
     private SingerRepository singerRepository;
 
     @Override
-    @Transactional(readOnly=true)
+    @Transactional(readOnly = true)
     public List<Singer> findAll() {
-        return null;
+        return Lists.newArrayList(singerRepository.findAll());
     }
 
     @Override
-    public List<Singer> findByFirstNarne(String firstName) {
-        return null;
+    @Transactional(readOnly = true)
+    public List<Singer> findByFirstName(String firstName) {
+        return singerRepository.findByFirstName(firstName);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Singer> findByFirstNameAndLastName(String firstName, String lastName) {
-        return null;
+        return singerRepository.findByFirstNameAndLastName(firstName, lastName);
     }
 }

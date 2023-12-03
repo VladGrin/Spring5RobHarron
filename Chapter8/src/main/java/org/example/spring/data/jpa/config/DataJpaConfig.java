@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
@@ -22,11 +23,12 @@ import java.util.Properties;
 
 @Configuration
 @EnableTransactionManagement
-@ComponentScan(basePackages = {"org.example.spring"})
-@EnableJpaRepositories(basePackages = {"org.example.spring"})
-public class JpaConfig {
+@ComponentScan(basePackages = {"org.example.spring.data.jpa"})
+@EnableJpaRepositories(basePackages = {"org.example.spring.data.jpa.repo"})
+@PropertySource("classpath:./application.properties")
+public class DataJpaConfig {
 
-    private static Logger logger = LoggerFactory.getLogger(JpaConfig.class);
+    private static Logger logger = LoggerFactory.getLogger(DataJpaConfig.class);
 
     @Bean
     public DataSource dataSource() {
@@ -67,7 +69,7 @@ public class JpaConfig {
     @Bean
     public EntityManagerFactory entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
-        factoryBean.setPackagesToScan("org.example.spring");
+        factoryBean.setPackagesToScan("org.example.spring.data.jpa");
         factoryBean.setDataSource(dataSource());
         factoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
         factoryBean.setJpaProperties(hibernateProperties());

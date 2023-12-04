@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="IoC_DependencyInjection" />
+        <module name="Transaction_Manager" />
         <module name="AOP" />
         <module name="Hibernate" />
         <module name="Introduction" />
@@ -24,6 +25,7 @@
       <module name="IoC_DependencyInjection" target="17" />
       <module name="JDBC" target="17" />
       <module name="jpa2" target="17" />
+      <module name="Transaction_Manager" target="17" />
     </bytecodeTargetLevel>
   </component>
 </project>

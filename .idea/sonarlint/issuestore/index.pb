@@ -256,3 +256,11 @@ MChapter8/src/main/java/org/example/spring/data/jpa/service/SingerService.java,
 LChapter8/src/main/java/org/example/spring/data/jpa/config/DataJpaConfig.java,c\2\c26f2dbce8536377623001dd23d3c1bc92d8eedf
 q
 AChapter8/src/test/java/org/example/service/SingerDataJPATest.java,2\f\2fef3eaf758253c92208e3c4fb96a59531143da6
+‚
+RChapter8/src/main/java/org/example/spring/data/jpa/service/SingerAuditService.java,9\0\90de291fad49ea28e142c6c318e6742688c3b5bd
+†
+VChapter8/src/main/java/org/example/spring/data/jpa/service/SingerAuditServiceImpl.java,f\3\f33ed6ab29416084d65f97f5242df5e9e6cca444
+
+OChapter8/src/main/java/org/example/spring/data/jpa/config/AuditorAwareBean.java,4\a\4addeea7c6c9a3965f368dbf605d79f574b4e950
+r
+BChapter8/src/test/java/org/example/service/SpringAuditJPADemo.java,c\7\c7099af8a5ce498fa641165bface6e5b7e76413d

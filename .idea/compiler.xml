@@ -15,6 +15,7 @@
         <module name="jpa2" />
         <module name="JDBC" />
         <module name="Configuration_InitLoading" />
+        <module name="Validation_Transformation_Formatting" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -26,6 +27,7 @@
       <module name="JDBC" target="17" />
       <module name="jpa2" target="17" />
       <module name="Transaction_Manager" target="17" />
+      <module name="Validation_Transformation_Formatting" target="17" />
     </bytecodeTargetLevel>
   </component>
 </project>

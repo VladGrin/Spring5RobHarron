@@ -264,3 +264,7 @@ VChapter8/src/main/java/org/example/spring/data/jpa/service/SingerAuditServiceIm
 OChapter8/src/main/java/org/example/spring/data/jpa/config/AuditorAwareBean.java,4\a\4addeea7c6c9a3965f368dbf605d79f574b4e950
 r
 BChapter8/src/test/java/org/example/service/SpringAuditJPADemo.java,c\7\c7099af8a5ce498fa641165bface6e5b7e76413d
+X
+(Chapter10/src/main/resources/logback.xml,e\1\e13b2e0a7d5288aec68a9d4fa1cb2f530c768d6a
+A
+Chapter10/pom.xml,2\2\22c43a200cb163460f9a441e3424d606923a3733

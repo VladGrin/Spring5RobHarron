@@ -1,6 +1,6 @@
-package org.example;
+package org.example.property_editor;
 
-import org.example.entity.Singer;
+import org.example.property_editor.entity.Singer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.support.GenericXmlApplicationContext;

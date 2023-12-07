@@ -1,4 +1,4 @@
-package org.example.entity;
+package org.example.spring_type_converter;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -9,7 +9,7 @@ import java.text.SimpleDateFormat;
 
 @Getter
 @Setter
-public class Singer {
+public class AnotherSinger {
 
     private String firstName;
     private String lastName;

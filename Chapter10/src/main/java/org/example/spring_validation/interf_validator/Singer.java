@@ -1,4 +1,4 @@
-package org.example.property_editor.entity;
+package org.example.spring_validation.interf_validator;
 
 import lombok.Getter;
 import lombok.Setter;

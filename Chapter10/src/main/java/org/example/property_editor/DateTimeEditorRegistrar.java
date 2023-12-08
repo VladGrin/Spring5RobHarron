@@ -1,4 +1,4 @@
-package org.example.property_editor.registr;
+package org.example.property_editor;
 
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;

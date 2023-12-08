@@ -18,18 +18,18 @@
           p:propertyEditorRegistrars-ref="propertyEditorRegistrarsList"/>
 
     <util:list id="propertyEditorRegistrarsList">
-        <bean class="org.example.property_editor.registr.DateTimeEditorRegistrar">
+        <bean class="org.example.property_editor.DateTimeEditorRegistrar">
             <constructor-arg value="${date.format.pattern}"/>
         </bean>
     </util:list>
 
-    <bean id="eric" class="org.example.property_editor.entity.Singer"
+    <bean id="eric" class="org.example.property_editor.Singer"
           p:firstName="Eric"
           p:lastName="Clapton"
           p:birthDate="1945-03-30"
           p:personalSite="http://www.ericclapton.com"/>
 
-    <bean id="countrySinger" class="org.example.property_editor.entity.Singer"
+    <bean id="countrySinger" class="org.example.property_editor.Singer"
           p:firstName="${countrySinger.firstName}"
           p:lastName="${countrySinger.lastName}"
           p:birthDate="${countrySinger.birthDate}"

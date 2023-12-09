@@ -272,14 +272,10 @@ e
 5Chapter9/src/main/java/org/example/entity/Singer.java,0\d\0d658d69a185da393e7a8e570703c5deee615e36
 u
 EChapter10/src/main/java/org/example/spring_type_converter/Singer.java,5\b\5b2b4447643fc1e22bbcda44f7c7374740dbd655
-v
-FChapter10/src/main/java/org/example/property_editor/entity/Singer.java,5\3\535ec9f920adef7f0d51a713a7535715db06c4e4
 w
 GChapter10/src/main/java/org/example/property_editor/PropEditorDemo.java,0\a\0a6aa959aacdc5b3d82f6ac446eb36cc5176bd3c
 |
 LChapter10/src/main/java/org/example/spring_type_converter/AnotherSinger.java,4\2\42334052b0b1bcc524e7f707d293591063f6f100
-à
-XChapter10/src/main/java/org/example/property_editor/registr/DateTimeEditorRegistrar.java,6\5\655478b52bdfd1f89a3ba06ce7b1e28c807136ea
 ç
 ]Chapter10/src/main/java/org/example/spring_type_converter/SingerToAnotherSingerConverter.java,2\8\2833f3ee9e9715f359d8f06e6db801fafaaa3bde
 x
@@ -296,5 +292,3 @@ t
 DChapter10/src/main/java/org/example/spring_formatting/AppConfig.java,0\4\04f55142b3f5d990a4d4f79a85c1ca0c6f8aeb96
 }
 MChapter10/src/main/java/org/example/spring_formatting/ConvFormatServDemo.java,e\c\ec0df72926e88218cb2f55762db9cd1b21b8a8ad
-l
-<Chapter10/src/main/java/org/example/spring_validation/holder,9\9\992fb4fa8e04060e653cff5d5ae58cdd9e30e943

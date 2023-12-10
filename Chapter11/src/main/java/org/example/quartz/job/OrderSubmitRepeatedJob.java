@@ -8,18 +8,18 @@ import org.springframework.scheduling.quartz.QuartzJobBean;
 import org.springframework.stereotype.Component;
 
 @Component
-public class OrderSubmitJob extends QuartzJobBean {
+public class OrderSubmitRepeatedJob extends QuartzJobBean {
 
-    private static final Logger logger = LoggerFactory.getLogger(OrderSubmitJob.class);
+    private static final Logger logger = LoggerFactory.getLogger(OrderSubmitRepeatedJob.class);
 
     @Override
     protected void executeInternal(JobExecutionContext context) throws JobExecutionException {
-        logger.info("--- START ORDER SUBMIT JOB --- {}", Thread.currentThread().getName());
+        logger.info("--- START ORDER SUBMIT REPEATED JOB --- {}", Thread.currentThread().getName());
         try {
             Thread.sleep(5000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        logger.info("--- STOP ORDER SUBMIT JOB --- {}", Thread.currentThread().getName());
+        logger.info("--- STOP ORDER SUBMIT REPEATED JOB --- {}", Thread.currentThread().getName());
     }
 }

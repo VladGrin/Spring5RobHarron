@@ -7,18 +7,18 @@ import org.springframework.scheduling.quartz.QuartzJobBean;
 import org.springframework.stereotype.Component;
 
 @Component
-public class DoSapTransformProcAgainJob extends QuartzJobBean {
+public class OrderSubmitStatCronJob extends QuartzJobBean {
 
-    private static final Logger logger = LoggerFactory.getLogger(DoSapTransformProcAgainJob.class);
+    private static final Logger logger = LoggerFactory.getLogger(OrderSubmitStatCronJob.class);
 
     @Override
     protected void executeInternal(JobExecutionContext context) {
-        logger.info("--- START DoSapTransformProcAgainJob JOB --- {}", Thread.currentThread().getName());
+        logger.info("--- START MercuryOrdStat JOB --- {}", Thread.currentThread().getName());
         try {
-            Thread.sleep(3000);
+            Thread.sleep(6000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        logger.info("--- STOP DoSapTransformProcAgainJob JOB --- {}", Thread.currentThread().getName());
+        logger.info("--- STOP MercuryOrdStat JOB --- {}", Thread.currentThread().getName());
     }
 }

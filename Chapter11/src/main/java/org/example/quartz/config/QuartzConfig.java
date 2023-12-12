@@ -1,5 +1,7 @@
 package org.example.quartz.config;
 
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
 import org.example.quartz.job.DoSapTransformProcJob;
 import org.example.quartz.job.OrderSubmitManualJob;
 import org.example.quartz.job.OrderSubmitRepeatedJob;
@@ -14,8 +16,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.DependsOn;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.scheduling.quartz.*;
-import org.springframework.transaction.PlatformTransactionManager;
 
 import javax.sql.DataSource;
 import java.text.ParseException;
@@ -36,17 +38,20 @@ public class QuartzConfig {
     @Autowired
     private ApplicationContext applicationContext;
 
-    @Autowired
-    private DataSource dataSource;
-
-    @Autowired
-    private PlatformTransactionManager transactionManager;
-
     @Value("${order.submit.proc.cron}")
     private String orderSubmitProcCron;
 
     @Value("${order.submit.stat.cron}")
     private String orderSubmitStatCron;
+
+    @Value("${driverClassName}")
+    private String driverClassName;
+    @Value("${url}")
+    private String url;
+    @Value("${pg.username}")
+    private String username;
+    @Value("${password}")
+    private String password;
 
     public SpringBeanJobFactory springBeanJobFactory() {
         AutowiringSpringBeanJobFactory jobFactory = new AutowiringSpringBeanJobFactory();
@@ -131,28 +136,52 @@ public class QuartzConfig {
         return trigger;
     }
 
-    @Value("${driverClassName}")
-    private String driverClassName;
-    @Value("${url}")
-    private String url;
-    @Value("${pg.username}")
-    private String username;
-    @Value("${password}")
-    private String password;
+    @Bean(destroyMethod = "close")
+    public DataSource schedulerDataSource() {
+        try {
+            HikariConfig config = new HikariConfig();
+            config.setJdbcUrl(url);
+            config.setUsername(username);
+            config.setPassword(password);
+            config.setDriverClassName(driverClassName);
+
+            config.setMaximumPoolSize(5);
+            config.setMinimumIdle(2);
+            config.setIdleTimeout(30000);
+            config.setPoolName("scheduler-hikari-pool");
+            config.setAutoCommit(true);
+            config.setConnectionTestQuery("SELECT 1");
+
+            return new HikariDataSource(config);
+        } catch (Exception e) {
+            logger.error("DataSource bean cannot Ье created!", e);
+            return null;
+        }
+    }
+
+    @Bean(name = "schedulerTransactionManager")
+    public DataSourceTransactionManager schedulerTransactionManager() {
+        return new DataSourceTransactionManager(schedulerDataSource());
+    }
 
     @Bean
     @DependsOn(value = "dataSourceInitializer")
-    public SchedulerFactoryBean batchScheduler() {
+    public SchedulerFactoryBean batchScheduler(DataSourceTransactionManager schedulerTransactionManager) {
         SchedulerFactoryBean schedulerFactory = new SchedulerFactoryBean();
 
         Properties quartzProperties = new Properties();
+        quartzProperties.setProperty("org.quartz.threadPool.class", "org.quartz.simpl.SimpleThreadPool");
         quartzProperties.setProperty("org.quartz.threadPool.threadCount", "5");
-        quartzProperties.setProperty("org.quartz.tablePrefix", "QRTZ_");
-        quartzProperties.setProperty("org.quartz.dataSource.myDS.driver", driverClassName);
-        quartzProperties.setProperty("org.quartz.dataSource.myDS.URL", url);
-        quartzProperties.setProperty("org.quartz.dataSource.myDS.user", username);
-        quartzProperties.setProperty("org.quartz.dataSource.myDS.password", password);
-        quartzProperties.setProperty("org.quartz.dataSource.myDS.provider", "hikaricp");
+        quartzProperties.setProperty("org.quartz.dataSource.quartzDataSource.URL", url);
+        quartzProperties.setProperty("org.quartz.dataSource.quartzDataSource.driver", driverClassName);
+        quartzProperties.setProperty("org.quartz.dataSource.quartzDataSource.user", username);
+        quartzProperties.setProperty("org.quartz.dataSource.quartzDataSource.password", password);
+        quartzProperties.setProperty("org.quartz.jobStore.dataSource", "quartzDataSource");
+        quartzProperties.setProperty("org.quartz.jobStore.class", "org.quartz.impl.jdbcjobstore.JobStoreTX");
+        quartzProperties.setProperty("org.quartz.jobStore.driverDelegateClass", "org.quartz.impl.jdbcjobstore.PostgreSQLDelegate");
+        quartzProperties.setProperty("org.quartz.jobStore.tablePrefix", "QRTZ_");
+        quartzProperties.setProperty("org.quartz.jobStore.isClustered", "true");
+        quartzProperties.setProperty("org.quartz.jobStore.misfireThreshold", "5000");
 
         schedulerFactory.setQuartzProperties(quartzProperties);
         schedulerFactory.setJobFactory(springBeanJobFactory());
@@ -167,8 +196,9 @@ public class QuartzConfig {
             logger.error("Failed to setup quartz triggers: {}", e.getMessage());
         }
 
-        schedulerFactory.setDataSource(dataSource);
-        schedulerFactory.setTransactionManager(transactionManager);
+        schedulerFactory.setTransactionManager(schedulerTransactionManager);
         return schedulerFactory;
     }
+
+
 }

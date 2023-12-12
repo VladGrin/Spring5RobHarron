@@ -1,5 +1,7 @@
 package org.example.quartz.config;
 
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -10,7 +12,6 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 import org.springframework.jdbc.datasource.init.DataSourceInitializer;
 import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
 import org.springframework.orm.jpa.JpaTransactionManager;
@@ -21,7 +22,6 @@ import org.springframework.transaction.PlatformTransactionManager;
 
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
-import java.sql.Driver;
 import java.util.Properties;
 
 @Configuration
@@ -46,17 +46,25 @@ public class DataBaseConfig {
         return new PropertySourcesPlaceholderConfigurer();
     }
 
-    @Bean(name = "dataSource")
+    @Bean(destroyMethod = "close")
     public DataSource dataSource() {
         try {
-            SimpleDriverDataSource dataSource = new SimpleDriverDataSource();
-            Class<? extends Driver> driver = (Class<? extends Driver>) Class.forName(driverClassName);
-            dataSource.setDriverClass(driver);
-            dataSource.setUrl(url);
-            dataSource.setUsername(username);
-            dataSource.setPassword(password);
-            return dataSource;
+            HikariConfig config = new HikariConfig();
+            config.setJdbcUrl(url);
+            config.setUsername(username);
+            config.setPassword(password);
+            config.setDriverClassName(driverClassName);
+
+            config.setMaximumPoolSize(5);
+            config.setMinimumIdle(2);
+            config.setIdleTimeout(30000);
+            config.setPoolName("my-hikari-pool");
+            config.setAutoCommit(true);
+            config.setConnectionTestQuery("SELECT 1");
+
+            return new HikariDataSource(config);
         } catch (Exception e) {
+            logger.error("DataSource bean cannot Ье created!", e);
             return null;
         }
     }
@@ -75,7 +83,7 @@ public class DataBaseConfig {
         return populator;
     }
 
-    @Bean(name = "transactionManager")
+    @Bean
     public PlatformTransactionManager transactionManager() {
         return new JpaTransactionManager(entityManagerFactory());
     }

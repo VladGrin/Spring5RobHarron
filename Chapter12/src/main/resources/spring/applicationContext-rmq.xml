@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:rabbit="http://www.springframework.org/schema/rabbit"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xsi:schemaLocation="
+	   	http://www.springframework.org/schema/rabbit
+	   	http://www.springframework.org/schema/rabbit/spring-rabbit.xsd
+		http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/context
+       	http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<context:property-placeholder location="classpath:./common-rmq.properties"/>
+
+	<rabbit:connection-factory id="rabbitConnectionFactory"
+                               addresses="${rabbitmq.addresses}"
+                               username="${rabbitmq.username}"
+							   password="${rabbitmq.password}"/>
+
+	<rabbit:admin connection-factory="rabbitConnectionFactory" />
+
+<!--	SENDER-->
+	<bean id="rabbitTemplate" class="org.springframework.amqp.rabbit.core.RabbitTemplate" >
+		<property name="connectionFactory" ref="rabbitConnectionFactory"/>
+<!--		<property name="exchange" value="${rabbitmq.test.event.exchange}"/>-->
+	</bean>
+
+	<bean id="testEventNotifierRmq" class="org.example.jms.rmq.notifier.TestEventNotifierRmq">
+		<property name="rabbitTemplate" ref="rabbitTemplate"/>
+		<property name="exchange" value="${rabbitmq.test.event.exchange}"/>
+		<property name="routingKey" value="${rabbitmq.test.event.routing.key}"/>
+		<property name="gson" ref="gson"/>
+	</bean>
+
+	<bean id="testRunEventNotifierRmq" class="org.example.jms.rmq.notifier.TestRunEventNotifierRmq">
+		<property name="rabbitTemplate" ref="rabbitTemplate"/>
+		<property name="exchange" value="${rabbitmq.test.event.exchange}"/>
+		<property name="routingKey" value="${rabbitmq.test.run.event.routing.key}"/>
+		<property name="gson" ref="gson"/>
+	</bean>
+
+<!--	RECEIVER-->
+	<rabbit:queue id="test-run-event-queue" name="${rabbitmq.test.run.event.queue}">
+		<rabbit:queue-arguments>
+			<entry key="x-queue-type" value="quorum"/>
+		</rabbit:queue-arguments>
+	</rabbit:queue>
+
+	<rabbit:queue id="test-event-queue" name="${rabbitmq.test.event.queue}">
+		<rabbit:queue-arguments>
+			<entry key="x-queue-type" value="quorum"/>
+		</rabbit:queue-arguments>
+	</rabbit:queue>
+
+	<rabbit:topic-exchange name="${rabbitmq.test.event.exchange}">
+		<rabbit:bindings>
+			<rabbit:binding queue="test-run-event-queue" pattern="${rabbitmq.test.run.event.routing.key}"/>
+			<rabbit:binding queue="test-event-queue" pattern="${rabbitmq.test.event.routing.key}"/>
+		</rabbit:bindings>
+	</rabbit:topic-exchange>
+
+	<rabbit:listener-container connection-factory="rabbitConnectionFactory">
+        <rabbit:listener ref="testRunEventListenerTest" queues="test-run-event-queue" />
+		<rabbit:listener ref="testEventListenerTest" queues="test-event-queue" />
+    </rabbit:listener-container>
+
+	<bean id="testRunEventListenerTest" class="org.example.jms.rmq.listeners.TestRunEventListenerTest">
+		<property name="gson" ref="gson"/>
+	</bean>
+
+	<bean id="testEventListenerTest" class="org.example.jms.rmq.listeners.TestEventListenerTest">
+		<property name="gson" ref="gson"/>
+	</bean>
+
+	<bean id="gson" class="com.google.gson.Gson"/>
+
+</beans>

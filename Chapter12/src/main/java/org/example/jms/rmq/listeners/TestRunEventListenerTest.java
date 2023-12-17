@@ -16,11 +16,11 @@ class TestRunEventListenerTest implements RabbitMqMessageListener {
     public void onMessage(Message message) {
         try {
             String msgStr = new String(message.getBody());
-            log.debug("Received MrtsTestRunEvent message: {}", msgStr);
+            log.debug("Received TestRunEvent message: {}", msgStr);
             TestRunEventEntity entity = gson.fromJson(msgStr, TestRunEventEntity.class);
-            log.debug("Save MrtsTestRunEvent: {}", entity);
+            log.debug("Save TestRunEvent: {}", entity);
         } catch (Exception e) {
-            log.warn("Exception during MrtsTestRunEvent procedure. {}", e.getMessage(), e);
+            log.warn("Exception during TestRunEvent procedure. {}", e.getMessage(), e);
         }
     }
 }

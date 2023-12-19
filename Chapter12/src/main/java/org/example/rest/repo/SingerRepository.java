@@ -1,6 +1,6 @@
-package org.example.rmi.repo;
+package org.example.rest.repo;
 
-import org.example.rmi.entity.Singer;
+import org.example.rest.entity.Singer;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,4 +1,4 @@
-package org.example.jms.rmq.listeners;
+package org.example.rmq.listeners;
 
 import org.springframework.amqp.core.MessageListener;
 

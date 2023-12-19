@@ -1,9 +1,9 @@
-package org.example.jms.rmq.notifier;
+package org.example.rmq.notifier;
 
 import com.google.gson.Gson;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
-import org.example.jms.rmq.entity.TestEventEntity;
+import org.example.rmq.entity.TestEventEntity;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.core.MessageBuilder;
 import org.springframework.amqp.core.MessageProperties;

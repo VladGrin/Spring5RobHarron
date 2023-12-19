@@ -1,0 +1,30 @@
+<mapping>
+    <class name="org.example.rest.entity.Singers">
+        <field name="singers" type="org.example.rest.entity.Singer" collection="arraylist">
+            <bind-xml name="singer"/>
+        </field>
+    </class>
+
+    <class name="org.example.rest.entity.Singer" identity="id">
+        <map-to xml="singer"/>
+        <field name="id" type="long">
+            <bind-xml name="id" node="element"/>
+        </field>
+        <field name="firstName" type="string">
+            <bind-xml name="firstName" пode="element"/>
+        </field>
+        <field name="lastName" type="string">
+            <bind-xml name="lastName" node="element"/>
+        </field>
+        <field name="birthDate" type="string" handler="dateHandler">
+            <bind-xml name="birthDate" node="element"/>
+        </field>
+        <field name="version" type="integer">
+            <bind-xml name="version" node="element"/>
+        </field>
+    </class>
+
+    <field-handler name="dateHandler" class="org.example.rest.util.DateTimeFieldHandler">
+        <param name="date-format" value="yyyy-MM-dd"/>
+    </field-handler>
+</mapping>

@@ -1,11 +1,11 @@
-package org.example;
+package org.example.rmi;
 
 import org.example.rmi.service.SingerService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean;
 
-@Configuration
+//@Configuration
 public class RmiClientConf {
 
     @Bean

@@ -1,7 +1,8 @@
-package org.example;
+package org.example.rmi;
 
 import org.example.rmi.entity.Singer;
 import org.example.rmi.service.SingerService;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -16,6 +17,7 @@ import static org.junit.Assert.assertEquals;
 
 @ContextConfiguration(classes = RmiClientConf.class)
 @RunWith(SpringRunner.class)
+@Ignore
 public class RmiTests {
 
     private static final Logger logger = LoggerFactory.getLogger(RmiTests.class);

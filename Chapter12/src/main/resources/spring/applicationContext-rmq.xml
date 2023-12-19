@@ -26,14 +26,14 @@
 <!--		<property name="exchange" value="${rabbitmq.test.event.exchange}"/>-->
 	</bean>
 
-	<bean id="testEventNotifierRmq" class="org.example.jms.rmq.notifier.TestEventNotifierRmq">
+	<bean id="testEventNotifierRmq" class="org.example.rmq.notifier.TestEventNotifierRmq">
 		<property name="rabbitTemplate" ref="rabbitTemplate"/>
 		<property name="exchange" value="${rabbitmq.test.event.exchange}"/>
 		<property name="routingKey" value="${rabbitmq.test.event.routing.key}"/>
 		<property name="gson" ref="gson"/>
 	</bean>
 
-	<bean id="testRunEventNotifierRmq" class="org.example.jms.rmq.notifier.TestRunEventNotifierRmq">
+	<bean id="testRunEventNotifierRmq" class="org.example.rmq.notifier.TestRunEventNotifierRmq">
 		<property name="rabbitTemplate" ref="rabbitTemplate"/>
 		<property name="exchange" value="${rabbitmq.test.event.exchange}"/>
 		<property name="routingKey" value="${rabbitmq.test.run.event.routing.key}"/>
@@ -65,11 +65,11 @@
 		<rabbit:listener ref="testEventListenerTest" queues="test-event-queue" />
     </rabbit:listener-container>
 
-	<bean id="testRunEventListenerTest" class="org.example.jms.rmq.listeners.TestRunEventListenerTest">
+	<bean id="testRunEventListenerTest" class="org.example.rmq.listeners.TestRunEventListenerTest">
 		<property name="gson" ref="gson"/>
 	</bean>
 
-	<bean id="testEventListenerTest" class="org.example.jms.rmq.listeners.TestEventListenerTest">
+	<bean id="testEventListenerTest" class="org.example.rmq.listeners.TestEventListenerTest">
 		<property name="gson" ref="gson"/>
 	</bean>
 

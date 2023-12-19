@@ -1,8 +1,8 @@
-package org.example.rmi.service;
+package org.example.rest.service;
 
 import com.google.common.collect.Lists;
-import org.example.rmi.entity.Singer;
-import org.example.rmi.repo.SingerRepository;
+import org.example.rest.entity.Singer;
+import org.example.rest.repo.SingerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

@@ -1,9 +1,9 @@
-package org.example.jms.rmq;
+package org.example.rmq;
 
-import org.example.jms.rmq.entity.TestEventEntity;
-import org.example.jms.rmq.entity.TestRunEventEntity;
-import org.example.jms.rmq.notifier.TestEventNotifierRmq;
-import org.example.jms.rmq.notifier.TestRunEventNotifierRmq;
+import org.example.rmq.entity.TestEventEntity;
+import org.example.rmq.entity.TestRunEventEntity;
+import org.example.rmq.notifier.TestEventNotifierRmq;
+import org.example.rmq.notifier.TestRunEventNotifierRmq;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

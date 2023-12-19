@@ -1,4 +1,4 @@
-package org.example.jms.rmq.entity;
+package org.example.rmq.entity;
 
 import lombok.Data;
 

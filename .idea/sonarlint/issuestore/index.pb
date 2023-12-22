@@ -382,10 +382,6 @@ y
 IChapter11/src/main/java/org/example/quartz/job/DoSapTransformProcJob.java,a\3\a3cfa8781998f7afe388e8da4ed71cd2c2ba03d6
 u
 EChapter12/src/main/java/org/example/rmi/config/DataServiceConfig.java,8\f\8f05a6e8a96516f8b0360f53a8dd26eb487a3ca7
-f
-6Chapter12/src/test/java/org/example/RmiClientConf.java,d\3\d381c492c229a09a755c87697fb84bb22433968d
-a
-1Chapter12/src/test/java/org/example/RmiTests.java,1\a\1a9431b8d7b2dfbdde84e47194409794b71d3bc9
 r
 BChapter12/src/main/java/org/example/rmi/config/WebInitializer.java,9\1\91255d8d292d0669ae703898f0b3b59c0ae0d965
 m
@@ -398,3 +394,9 @@ A
 Chapter12/pom.xml,0\d\0d91643317918a4183561df551a38409d2697dbe
 A
 Chapter13/pom.xml,0\d\0df98e45ed31a203f8ced0ed4e8e6010afa77990
+v
+FChapter12/src/main/java/org/example/rest/config/DataServiceConfig.java,0\e\0e1a0c920b1ce9ff2fd32669f8ce5b44ffb6e549
+n
+>Chapter12/src/main/java/org/example/rest/config/WebConfig.java,0\a\0a694885c119e2250825882ca74a370c6414d5cd
+n
+>Chapter12/src/test/java/org/example/rest/RestClientConfig.java,7\5\75884785b6833a2475427253203824229fbeaa57

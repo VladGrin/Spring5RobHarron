@@ -1,47 +1,29 @@
-package org.example.rest;
+package org.example.rest.config;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
-import org.apache.http.client.HttpClient;
-import org.apache.http.impl.client.HttpClientBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.List;
 
 @Configuration
-public class RestClientConfig {
+@EnableWebMvc
+@ComponentScan(basePackages = {"org.example.rest.controller"})
+public class WebConfig implements WebMvcConfigurer {
 
     @Autowired
     ApplicationContext ctx;
-
-    @Bean
-    public HttpComponentsClientHttpRequestFactory httpRequestFactory() {
-        HttpComponentsClientHttpRequestFactory httpRequestFactory = new HttpComponentsClientHttpRequestFactory();
-        HttpClient httpClient = HttpClientBuilder.create().build();
-        httpRequestFactory.setHttpClient(httpClient);
-        return httpRequestFactory;
-    }
-
-    @Bean
-    public RestTemplate restTemplate() {
-        RestTemplate restTemplate = new RestTemplate(httpRequestFactory());
-        List<HttpMessageConverter<?>> mcvs = new ArrayList<>();
-        mcvs.add(mappingJackson2HttpMessageConverter());
-//        mcvs.add(singerMessageConverter());
-        restTemplate.setMessageConverters(mcvs);
-        return restTemplate;
-    }
 
     @Bean
     public MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter() {
@@ -49,6 +31,11 @@ public class RestClientConfig {
         mappingJackson2HttpMessageConverter.setObjectMapper(objectMapper());
         return mappingJackson2HttpMessageConverter;
     }
+
+//    @Override
+//    public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
+//        configurer.enable();
+//    }
 
     @Bean
     public ObjectMapper objectMapper() {
@@ -58,6 +45,12 @@ public class RestClientConfig {
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         objMapper.setDateFormat(df);
         return objMapper;
+    }
+
+    @Override
+    public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
+        converters.add(mappingJackson2HttpMessageConverter());
+//        converters.add(singerMessageConverter());
     }
 
 //    @Bean
@@ -71,7 +64,7 @@ public class RestClientConfig {
 //        mc.setSupportedMediaTypes(mediaTypes);
 //        return mc;
 //    }
-//
+
 //    @Bean
 //    CastorMarshaller castorMarshaller() {
 //        CastorMarshaller castorMarshaller = new CastorMarshaller();
@@ -79,3 +72,5 @@ public class RestClientConfig {
 //        return castorMarshaller;
 //    }
 }
+
+

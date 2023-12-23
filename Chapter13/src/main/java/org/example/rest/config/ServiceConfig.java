@@ -1,13 +1,11 @@
 package org.example.rest.config;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
@@ -18,23 +16,14 @@ import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 import java.util.Properties;
 
+@Slf4j
 @Configuration
 @EnableJpaRepositories(basePackages = {"org.example.rest.repo"})
-@ComponentScan(basePackages = {"org.example.rest"})
-public class DataServiceConfig {
-    private static final Logger logger = LoggerFactory.getLogger(DataServiceConfig.class);
+@ComponentScan(basePackages = {"org.example.rest.entity", "org.example.rest.service"})
+public class ServiceConfig {
 
-    @Bean
-    public DataSource dataSource() {
-        try {
-            EmbeddedDatabaseBuilder dbBuilder = new EmbeddedDatabaseBuilder();
-            return dbBuilder.setType(EmbeddedDatabaseType.H2)
-                    .build();
-        } catch (Exception e) {
-            logger.error("EmbeddedJdbcConfig DataSource bean can not be created.", e);
-            return null;
-        }
-    }
+    @Autowired
+    DataSource dataSource;
 
     private Properties hibernateProperties() {
         Properties hibernateProp = new Properties();
@@ -61,7 +50,7 @@ public class DataServiceConfig {
     public EntityManagerFactory entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
         factoryBean.setPackagesToScan("org.example.rest");
-        factoryBean.setDataSource(dataSource());
+        factoryBean.setDataSource(dataSource);
         factoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
         factoryBean.setJpaProperties(hibernateProperties());
         factoryBean.setJpaVendorAdapter(jpaVendorAdapter());

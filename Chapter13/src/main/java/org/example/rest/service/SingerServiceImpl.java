@@ -29,6 +29,12 @@ public class SingerServiceImpl implements SingerService {
 
     @Override
     @Transactional(readOnly = true)
+    public List<Singer> findByFirstNameAndLastName(String firstName, String lastName) {
+        return singerRepository.findByFirstNameAndLastName(firstName, lastName);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
     public Singer findById(Long id) {
         return singerRepository.findById(id).get();
     }

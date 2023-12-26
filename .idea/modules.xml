@@ -14,6 +14,7 @@
       <module fileurl="file://$PROJECT_DIR$/Chapter10/Validation_Transformation_Formatting.iml" filepath="$PROJECT_DIR$/Chapter10/Validation_Transformation_Formatting.iml" />
       <module fileurl="file://$PROJECT_DIR$/Chapter8/jpa2.iml" filepath="$PROJECT_DIR$/Chapter8/jpa2.iml" />
       <module fileurl="file://$PROJECT_DIR$/Chapter12/remote.handling.iml" filepath="$PROJECT_DIR$/Chapter12/remote.handling.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Chapter14/scripts.iml" filepath="$PROJECT_DIR$/Chapter14/scripts.iml" />
       <module fileurl="file://$PROJECT_DIR$/Chapter13/testing.iml" filepath="$PROJECT_DIR$/Chapter13/testing.iml" />
     </modules>
   </component>

@@ -7,18 +7,19 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="IoC_DependencyInjection" />
         <module name="Transaction_Manager" />
         <module name="remote.handling" />
         <module name="AOP" />
         <module name="Hibernate" />
-        <module name="Introduction" />
         <module name="jpa2" />
         <module name="testing" />
+        <module name="IoC_DependencyInjection" />
+        <module name="Introduction" />
         <module name="JDBC" />
         <module name="Configuration_InitLoading" />
         <module name="Validation_Transformation_Formatting" />
         <module name="ScheduletTask" />
+        <module name="scripts" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -31,6 +32,7 @@
       <module name="jpa2" target="17" />
       <module name="remote.handling" target="17" />
       <module name="ScheduletTask" target="17" />
+      <module name="scripts" target="17" />
       <module name="testing" target="17" />
       <module name="Transaction_Manager" target="17" />
       <module name="Validation_Transformation_Formatting" target="17" />
@@ -39,6 +41,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="remote.handling" options="-parameters" />
+      <module name="scripts" options="-parameters" />
       <module name="testing" options="-parameters" />
     </option>
   </component>

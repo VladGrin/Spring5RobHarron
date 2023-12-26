@@ -1,6 +1,5 @@
 package org.example.spring_type_converter;
 
-import org.joda.time.DateTime;
 import org.springframework.core.convert.converter.Converter;
 
 public class SingerToAnotherSingerConverter implements Converter<Singer, AnotherSinger> {

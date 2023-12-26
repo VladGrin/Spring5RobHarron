@@ -13,6 +13,7 @@
         <module name="Hibernate" />
         <module name="jpa2" />
         <module name="testing" />
+        <module name="monitoring" />
         <module name="IoC_DependencyInjection" />
         <module name="Introduction" />
         <module name="JDBC" />
@@ -30,6 +31,7 @@
       <module name="IoC_DependencyInjection" target="17" />
       <module name="JDBC" target="17" />
       <module name="jpa2" target="17" />
+      <module name="monitoring" target="17" />
       <module name="remote.handling" target="17" />
       <module name="ScheduletTask" target="17" />
       <module name="scripts" target="17" />
@@ -40,6 +42,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="monitoring" options="-parameters" />
       <module name="remote.handling" options="-parameters" />
       <module name="scripts" options="-parameters" />
       <module name="testing" options="-parameters" />

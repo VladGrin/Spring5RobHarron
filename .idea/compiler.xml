@@ -13,6 +13,7 @@
         <module name="Hibernate" />
         <module name="jpa2" />
         <module name="testing" />
+        <module name="webapp-jcfg" />
         <module name="monitoring" />
         <module name="IoC_DependencyInjection" />
         <module name="Introduction" />
@@ -21,6 +22,7 @@
         <module name="Validation_Transformation_Formatting" />
         <module name="ScheduletTask" />
         <module name="scripts" />
+        <module name="webapp-boot" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -38,6 +40,8 @@
       <module name="testing" target="17" />
       <module name="Transaction_Manager" target="17" />
       <module name="Validation_Transformation_Formatting" target="17" />
+      <module name="webapp-boot" target="17" />
+      <module name="webapp-jcfg" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -46,6 +50,8 @@
       <module name="remote.handling" options="-parameters" />
       <module name="scripts" options="-parameters" />
       <module name="testing" options="-parameters" />
+      <module name="webapp-boot" options="-parameters" />
+      <module name="webapp-jcfg" options="-parameters" />
     </option>
   </component>
 </project>

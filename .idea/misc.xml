@@ -17,6 +17,8 @@
         <option value="$PROJECT_DIR$/Chapter13/pom.xml" />
         <option value="$PROJECT_DIR$/Chapter14/pom.xml" />
         <option value="$PROJECT_DIR$/Chapter15/pom.xml" />
+        <option value="$PROJECT_DIR$/Chapter16/singer-webapp-boot/pom.xml" />
+        <option value="$PROJECT_DIR$/Chapter16/singer-webapp-jcfg/pom.xml" />
       </list>
     </option>
   </component>

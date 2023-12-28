@@ -17,6 +17,8 @@
       <module fileurl="file://$PROJECT_DIR$/Chapter12/remote.handling.iml" filepath="$PROJECT_DIR$/Chapter12/remote.handling.iml" />
       <module fileurl="file://$PROJECT_DIR$/Chapter14/scripts.iml" filepath="$PROJECT_DIR$/Chapter14/scripts.iml" />
       <module fileurl="file://$PROJECT_DIR$/Chapter13/testing.iml" filepath="$PROJECT_DIR$/Chapter13/testing.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Chapter16/singer-webapp-boot/webapp-boot.iml" filepath="$PROJECT_DIR$/Chapter16/singer-webapp-boot/webapp-boot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Chapter16/singer-webapp-jcfg/webapp-jcfg.iml" filepath="$PROJECT_DIR$/Chapter16/singer-webapp-jcfg/webapp-jcfg.iml" />
     </modules>
   </component>
 </project>

@@ -436,3 +436,15 @@ l
 <Chapter15/src/main/java/org/example/rest/entity/Singers.java,9\e\9e28cc24f23a1b20649d8c81217eab8976f99a06
 e
 5Chapter15/src/main/java/org/example/rest/RestApp.java,f\d\fd83254e426c57068333e43bcd97ccb52083af48
+x
+HChapter16/singer-webapp-jcfg/src/main/webapp/WEB-INF/layouts/layouts.xml,7\2\726ee05e6e0444cb5ce87bc185d42db293bbd1d4
+y
+IChapter16/singer-webapp-jcfg/src/main/webapp/WEB-INF/layouts/default.jspx,7\1\7147b1507e06b21716c7ad66f75ae447dd93ea26
+€
+PChapter16/singer-webapp-jcfg/src/main/webapp/WEB-INF/i18n/application.properties,e\e\ee528b26bdc0732e58f7fa131ce9221c29f21f8c
+†
+VChapter16/singer-webapp-jcfg/src/main/webapp/WEB-INF/i18n/application_ko_KR.properties,7\7\7762339833e1b5b2471e3ec544226b4bc5ae774d
+†
+VChapter16/singer-webapp-jcfg/src/main/webapp/WEB-INF/i18n/application_zh_HK.properties,d\0\d0cfafc5b0742ee11a31f46048e2b8da481ee1b1
+}
+MChapter16/singer-webapp-jcfg/src/main/webapp/WEB-INF/i18n/messages.properties,d\7\d752a3947c96a9250a2c384f1e8cb1aa34f9d584

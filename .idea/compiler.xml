@@ -23,6 +23,7 @@
         <module name="ScheduletTask" />
         <module name="scripts" />
         <module name="webapp-boot" />
+        <module name="remote.handling (1)" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -35,6 +36,7 @@
       <module name="jpa2" target="17" />
       <module name="monitoring" target="17" />
       <module name="remote.handling" target="17" />
+      <module name="remote.handling (1)" target="17" />
       <module name="ScheduletTask" target="17" />
       <module name="scripts" target="17" />
       <module name="testing" target="17" />
@@ -48,6 +50,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="monitoring" options="-parameters" />
       <module name="remote.handling" options="-parameters" />
+      <module name="remote.handling (1)" options="" />
       <module name="scripts" options="-parameters" />
       <module name="testing" options="-parameters" />
       <module name="webapp-boot" options="-parameters" />

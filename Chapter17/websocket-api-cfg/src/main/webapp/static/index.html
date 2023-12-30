@@ -25,29 +25,29 @@
                     websocket = new WebSocket($("#target").val());
 
                     websocket.onopen = function (evt) {
-                        writeStatus("연결됨");
+                        writeStatus("CONNECTED");
 
                         var ping = setInterval(function () {
                             if (websocket != "undefined") {
-                                websocket.send("핑(ping)");
+                                websocket.send("ping");
                             }
                         }, 3000);
                     };
 
                     websocket.onclose = function (evt) {
-                        writeStatus("연결이 해제됨");
+                        writeStatus("DISCONNECTED");
                     };
 
                     websocket.onmessage = function (evt) {
-                        if (evt.data === "핑(ping)") {
+                        if (evt.data === "ping") {
                             writePing(evt.data);
                         } else {
-                            writeMessage('수신 메시지: ' + evt.data);
+                            writeMessage('ECHO: ' + evt.data);
                         }
                     };
 
                     websocket.onerror = function (evt) {
-                        onError(writeStatus('에러:' + evt.data))
+                        onError(writeStatus('ERROR:' + evt.data))
                     };
                 });
 
@@ -57,7 +57,7 @@
                         websocket.close();
                         websocket = undefined;
                     } else {
-                        alert("연결되지 않음.");
+                        alert("NOT CONNECTED.");
                     }
                 });
 
@@ -66,7 +66,7 @@
                     if (typeof websocket != 'undefined') {
                         websocket.send($('#message').val());
                     } else {
-                        alert("연결되지 않음.");
+                        alert("NOT CONNECTED.");
                     }
                 });
         });
@@ -74,22 +74,21 @@
 </head>
 
 <body>
-    <h2>웹 소켓 테스트</h2>
-    대상:
+    <h2>WebSocket Tester</h2>
     <input id="target" size="40" value="ws://localhost:8080/echoHandler"/>
     <br/>
-    <button id="connect">연결</button>
-    <button id="disconnect">연결 해제</button>
+    <button id="connect">Connect</button>
+    <button id="disconnect">Disconnect</button>
     <br/>
-    <br/>메시지:
+    <br/>Message:
     <input id="message" value=""/>
-    <button id="send">보내기</button>
+    <button id="send">Send</button>
     <br/>
-    <p>상태 출력:</p>
+    <p>Status output:</p>
     <pre><textarea id="statusOutput" rows="10" cols="50"></textarea></pre>
-    <p>메시지 출력:</p>
+    <p>Message output:</p>
     <pre><textarea id="messageOutput" rows="10" cols="50"></textarea></pre>
-    <p>핑(Ping) 출력:</p>
+    <p>Ping output:</p>
     <pre><textarea id="pingOutput" rows="10" cols="50"></textarea></pre>
 </body>
 </html>

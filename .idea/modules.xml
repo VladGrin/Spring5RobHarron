@@ -15,6 +15,7 @@
       <module fileurl="file://$PROJECT_DIR$/Chapter8/jpa2.iml" filepath="$PROJECT_DIR$/Chapter8/jpa2.iml" />
       <module fileurl="file://$PROJECT_DIR$/Chapter15/monitoring.iml" filepath="$PROJECT_DIR$/Chapter15/monitoring.iml" />
       <module fileurl="file://$PROJECT_DIR$/Chapter12/remote.handling.iml" filepath="$PROJECT_DIR$/Chapter12/remote.handling.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Chapter17/websocket-api-cfg/remote.handling (1).iml" filepath="$PROJECT_DIR$/Chapter17/websocket-api-cfg/remote.handling (1).iml" />
       <module fileurl="file://$PROJECT_DIR$/Chapter14/scripts.iml" filepath="$PROJECT_DIR$/Chapter14/scripts.iml" />
       <module fileurl="file://$PROJECT_DIR$/Chapter13/testing.iml" filepath="$PROJECT_DIR$/Chapter13/testing.iml" />
       <module fileurl="file://$PROJECT_DIR$/Chapter16/singer-webapp-boot/webapp-boot.iml" filepath="$PROJECT_DIR$/Chapter16/singer-webapp-boot/webapp-boot.iml" />

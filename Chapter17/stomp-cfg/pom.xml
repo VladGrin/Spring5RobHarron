@@ -3,10 +3,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example.vlad.grin</groupId>
-    <artifactId>websocket.api.cfg</artifactId>
+    <artifactId>stomp.cfg</artifactId>
     <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>websocket.api.cfg</name>
+    <name>stomp.cfg</name>
 
     <properties>
         <java.version>17</java.version>
@@ -18,7 +18,7 @@
 
     <dependencies>
 
-<!--        SPRING Libs         -->
+        <!--        SPRING Libs         -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
@@ -94,7 +94,7 @@
             <scope>provided</scope>
         </dependency>
 
-<!--        LOGGING-->
+        <!--        LOGGING-->
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-core</artifactId>
@@ -156,7 +156,7 @@
     </dependencies>
 
     <build>
-        <finalName>websocket-echo2</finalName>
+        <finalName>stomp2</finalName>
         <plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -174,10 +174,6 @@
                         <manifestEntries>
                             <Created-By>Volodymyr Hrinchenko</Created-By>
                             <Specification-Title>Pro Spring 5</Specification-Title>
-                            <Class-Path>
-                                <!-- Сборка Class-Path из зависимостей -->
-                                ${project.dependencies.collect { 'WEB-INF/lib/' + it.artifactId + '-' + it.version + '.jar' }.join(' ')}
-                            </Class-Path>
                         </manifestEntries>
                     </archive>
                 </configuration>

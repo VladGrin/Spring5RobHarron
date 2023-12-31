@@ -20,6 +20,12 @@
         <option value="$PROJECT_DIR$/Chapter16/singer-webapp-boot/pom.xml" />
         <option value="$PROJECT_DIR$/Chapter16/singer-webapp-jcfg/pom.xml" />
         <option value="$PROJECT_DIR$/Chapter17/websocket-api-cfg/pom.xml" />
+        <option value="$PROJECT_DIR$/Chapter17/sockjs-cfg/src/pom.xml" />
+        <option value="$PROJECT_DIR$/Chapter17/websocket-api/pom.xml" />
+        <option value="$PROJECT_DIR$/Chapter17/sockjs/pom.xml" />
+        <option value="$PROJECT_DIR$/Chapter17/sockjs-cfg/pom.xml" />
+        <option value="$PROJECT_DIR$/Chapter17/stomp/pom.xml" />
+        <option value="$PROJECT_DIR$/Chapter17/stomp-cfg/pom.xml" />
       </list>
     </option>
   </component>

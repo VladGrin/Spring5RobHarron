@@ -10,11 +10,20 @@
         <module name="Transaction_Manager" />
         <module name="remote.handling" />
         <module name="websocket-api" />
+        <module name="sockjs" />
+        <module name="jpa2" />
+        <module name="sockjs.cfg" />
+        <module name="websocket.api.cfg" />
+        <module name="JDBC" />
+        <module name="Configuration_InitLoading" />
+        <module name="Validation_Transformation_Formatting" />
+        <module name="stomp" />
+        <module name="scripts" />
+        <module name="stomp.cfg" />
         <module name="sockjs-cfg" />
         <module name="AOP" />
         <module name="Hibernate" />
-        <module name="sockjs" />
-        <module name="jpa2" />
+        <module name="websocket.api" />
         <module name="testing" />
         <module name="webapp-jcfg" />
         <module name="monitoring" />
@@ -22,12 +31,7 @@
         <module name="IoC_DependencyInjection" />
         <module name="stomp-cfg" />
         <module name="Introduction" />
-        <module name="JDBC" />
-        <module name="Configuration_InitLoading" />
-        <module name="Validation_Transformation_Formatting" />
         <module name="ScheduletTask" />
-        <module name="stomp" />
-        <module name="scripts" />
         <module name="webapp-boot" />
       </profile>
     </annotationProcessing>
@@ -45,8 +49,10 @@
       <module name="scripts" target="17" />
       <module name="sockjs" target="17" />
       <module name="sockjs-cfg" target="17" />
+      <module name="sockjs.cfg" target="17" />
       <module name="stomp" target="17" />
       <module name="stomp-cfg" target="17" />
+      <module name="stomp.cfg" target="17" />
       <module name="testing" target="17" />
       <module name="Transaction_Manager" target="17" />
       <module name="Validation_Transformation_Formatting" target="17" />
@@ -54,6 +60,8 @@
       <module name="webapp-jcfg" target="17" />
       <module name="websocket-api" target="17" />
       <module name="websocket-api-cfg" target="17" />
+      <module name="websocket.api" target="17" />
+      <module name="websocket.api.cfg" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

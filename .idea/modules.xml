@@ -16,19 +16,19 @@
       <module fileurl="file://$PROJECT_DIR$/Chapter15/monitoring.iml" filepath="$PROJECT_DIR$/Chapter15/monitoring.iml" />
       <module fileurl="file://$PROJECT_DIR$/Chapter12/remote.handling.iml" filepath="$PROJECT_DIR$/Chapter12/remote.handling.iml" />
       <module fileurl="file://$PROJECT_DIR$/Chapter14/scripts.iml" filepath="$PROJECT_DIR$/Chapter14/scripts.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Chapter17/sockjs/sockjs.iml" filepath="$PROJECT_DIR$/Chapter17/sockjs/sockjs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Chapter17-WebSocket/sockjs/sockjs.iml" filepath="$PROJECT_DIR$/Chapter17-WebSocket/sockjs/sockjs.iml" />
       <module fileurl="file://$PROJECT_DIR$/Chapter17/sockjs-cfg/sockjs-cfg.iml" filepath="$PROJECT_DIR$/Chapter17/sockjs-cfg/sockjs-cfg.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Chapter17/sockjs-cfg/sockjs.cfg.iml" filepath="$PROJECT_DIR$/Chapter17/sockjs-cfg/sockjs.cfg.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Chapter17/stomp/stomp.iml" filepath="$PROJECT_DIR$/Chapter17/stomp/stomp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Chapter17-WebSocket/sockjs-cfg/sockjs.cfg.iml" filepath="$PROJECT_DIR$/Chapter17-WebSocket/sockjs-cfg/sockjs.cfg.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Chapter17-WebSocket/stomp/stomp.iml" filepath="$PROJECT_DIR$/Chapter17-WebSocket/stomp/stomp.iml" />
       <module fileurl="file://$PROJECT_DIR$/Chapter17/stomp-cfg/stomp-cfg.iml" filepath="$PROJECT_DIR$/Chapter17/stomp-cfg/stomp-cfg.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Chapter17/stomp-cfg/stomp.cfg.iml" filepath="$PROJECT_DIR$/Chapter17/stomp-cfg/stomp.cfg.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Chapter17-WebSocket/stomp-cfg/stomp.cfg.iml" filepath="$PROJECT_DIR$/Chapter17-WebSocket/stomp-cfg/stomp.cfg.iml" />
       <module fileurl="file://$PROJECT_DIR$/Chapter13/testing.iml" filepath="$PROJECT_DIR$/Chapter13/testing.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Chapter16/singer-webapp-boot/webapp-boot.iml" filepath="$PROJECT_DIR$/Chapter16/singer-webapp-boot/webapp-boot.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Chapter16/singer-webapp-jcfg/webapp-jcfg.iml" filepath="$PROJECT_DIR$/Chapter16/singer-webapp-jcfg/webapp-jcfg.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Chapter16-WebApplication/singer-webapp-boot/webapp-boot.iml" filepath="$PROJECT_DIR$/Chapter16-WebApplication/singer-webapp-boot/webapp-boot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Chapter16-WebApplication/singer-webapp-jcfg/webapp-jcfg.iml" filepath="$PROJECT_DIR$/Chapter16-WebApplication/singer-webapp-jcfg/webapp-jcfg.iml" />
       <module fileurl="file://$PROJECT_DIR$/Chapter17/websocket-api/websocket-api.iml" filepath="$PROJECT_DIR$/Chapter17/websocket-api/websocket-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/Chapter17/websocket-api-cfg/websocket-api-cfg.iml" filepath="$PROJECT_DIR$/Chapter17/websocket-api-cfg/websocket-api-cfg.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Chapter17/websocket-api/websocket.api.iml" filepath="$PROJECT_DIR$/Chapter17/websocket-api/websocket.api.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Chapter17/websocket-api-cfg/websocket.api.cfg.iml" filepath="$PROJECT_DIR$/Chapter17/websocket-api-cfg/websocket.api.cfg.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Chapter17-WebSocket/websocket-api/websocket.api.iml" filepath="$PROJECT_DIR$/Chapter17-WebSocket/websocket-api/websocket.api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Chapter17-WebSocket/websocket-api-cfg/websocket.api.cfg.iml" filepath="$PROJECT_DIR$/Chapter17-WebSocket/websocket-api-cfg/websocket.api.cfg.iml" />
     </modules>
   </component>
 </project>

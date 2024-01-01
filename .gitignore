@@ -18,6 +18,7 @@ target/
 
 ### IntelliJ IDEA ###
 .idea
+.idea/
 *.iws
 *.iml
 *.ipr
@@ -36,3 +37,29 @@ build/
 ### VS Code ###
 .vscode/
 /index.pb
+.gradle
+out
+build
+gradle
+gradlew*
+*.class
+transaction-logs
+target
+WebContent
+bin
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+gradlew
+gradlew.bat
+.DS_Store
+generated

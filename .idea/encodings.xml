@@ -13,10 +13,26 @@
     <file url="file://$PROJECT_DIR$/Chapter14/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Chapter15/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Chapter15/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Chapter16-WebApplication/singer-webapp-boot/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Chapter16-WebApplication/singer-webapp-boot/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Chapter16-WebApplication/singer-webapp-jcfg/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Chapter16-WebApplication/singer-webapp-jcfg/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Chapter16/singer-webapp-boot/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Chapter16/singer-webapp-boot/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Chapter16/singer-webapp-jcfg/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Chapter16/singer-webapp-jcfg/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Chapter17-WebSocket/sockjs-cfg/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Chapter17-WebSocket/sockjs-cfg/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Chapter17-WebSocket/sockjs/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Chapter17-WebSocket/sockjs/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Chapter17-WebSocket/stomp-cfg/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Chapter17-WebSocket/stomp-cfg/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Chapter17-WebSocket/stomp/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Chapter17-WebSocket/stomp/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Chapter17-WebSocket/websocket-api-cfg/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Chapter17-WebSocket/websocket-api-cfg/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Chapter17-WebSocket/websocket-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Chapter17-WebSocket/websocket-api/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Chapter17/sockjs-cfg/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Chapter17/sockjs-cfg/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Chapter17/sockjs-cfg/src/src/main/java" charset="UTF-8" />

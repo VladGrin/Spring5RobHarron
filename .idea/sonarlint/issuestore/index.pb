@@ -474,3 +474,7 @@ a
 1Chapter17/stomp/src/main/webapp/static/index.html,f\1\f14b63e36ee06ae9a8d7770a8f5acbd1797cca6b
 e
 5Chapter17/stomp-cfg/src/main/webapp/static/index.html,c\d\cde51ddb84feb4c8179ba35d8b2e3150d0724c6b
+O
+Chapter17/websocket-api/pom.xml,6\8\68e717ab67831c92371ebe2cb2e888dcb4afb540
+S
+#Chapter17/websocket-api-cfg/pom.xml,e\1\e1c3fccd45859055e2b98d0c543ee9e33aef9d2d

@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class StepExecutionStatsListener extends StepExecutionListenerSupport {
 
-
     @Override
     public ExitStatus afterStep(StepExecution stepExecution) {
         log.info("--> Wrote: " + stepExecution.getWriteCount() +
